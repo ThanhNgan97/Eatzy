@@ -17,7 +17,7 @@ const MyTabBars = ({ state, descriptors, navigation }) => {
   useEffect(() => {
     Animated.spring(translateX, {
       toValue: state.index * tabWidth,
-      useNativeDriver: false,  // phải false vì animating thuộc tính layout
+      useNativeDriver: false,  
     }).start();
   }, [state.index]);
 
@@ -45,47 +45,47 @@ const MyTabBars = ({ state, descriptors, navigation }) => {
 />
 
 
-      {/* Các Tab */}
-      {state.routes.map((route, index) => {
-        const isFocused = state.index === index;
-        const iconInfo = ICON_MAP[route.name] || { type: 'Ionicons', name: 'help-circle-outline' };
-        const color = isFocused ? '#68BD6C' : '#A9A9A9';
+  {state.routes.map((route, index) => {
+    const isFocused = state.index === index;
+    const iconInfo = ICON_MAP[route.name] || { type: 'Ionicons', name: 'help-circle-outline' };
+    const color = isFocused ? '#68BD6C' : '#A9A9A9';
 
-        const onPress = () => {
-          const event = navigation.emit({
-            type: 'tabPress',
-            target: route.key,
-            canPreventDefault: true,
-          });
+    const onPress = () => {
+      const event = navigation.emit({
+        type: 'tabPress',
+        target: route.key,
+        canPreventDefault: true,
+      });
 
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
-          }
-        };
+      if (!isFocused && !event.defaultPrevented) {
+        navigation.navigate(route.name);
+      }
+    };
 
-        return (
-          <TouchableOpacity
-            key={route.key}
-            onPress={onPress}
-            style={{
-              width: tabWidth,
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingVertical: 10,
-              flexDirection: 'column',
-            }}
-            activeOpacity={0.8}
-          >
-            <DynamicIcon
-              type={iconInfo.type}
-              name={iconInfo.name}
-              size={20}
-              color={color}
-            />
-            <Text style={{ color, marginTop: 4, fontSize: 12 }}>{route.name}</Text>
-          </TouchableOpacity>
-        );
-      })}
+    return (
+      <TouchableOpacity
+        key={route.key}
+        onPress={onPress}
+        style={{
+          width: tabWidth,
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingVertical: 10,
+          flexDirection: 'column',
+          paddingBottom: 37
+        }}
+        activeOpacity={0.8}
+      >
+        <DynamicIcon
+          type={iconInfo.type}
+          name={iconInfo.name}
+          size={20}
+          color={color}
+        />
+        <Text style={{ color, marginTop: 4, fontSize: 12 }}>{route.name}</Text>
+      </TouchableOpacity>
+    );
+  })}
     </View>
   );
 };

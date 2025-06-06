@@ -18,7 +18,7 @@ tabBar: {
   right: 0,
   overflow: 'hidden',
   justifyContent:'center',
-  alignItems:'center'
+  alignItems:'center',
 },
 
 tabItem: {
@@ -29,13 +29,7 @@ tabItem: {
   zIndex: 1, 
 },
 
-highlightBox: {
-  // height: 55,
-  backgroundColor: "#E5F4EA",
-  borderRadius: 12,
-  position: 'absolute',
-  zIndex: 0,
-},
+
   
 label: {
   fontSize: 11,

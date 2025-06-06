@@ -11,6 +11,7 @@ export default StyleSheet.create({
     alignSelf: "center", 
     flexDirection: "row",    
     alignItems: "center",
+    marginTop: 30
   },
 
   addressRow: {

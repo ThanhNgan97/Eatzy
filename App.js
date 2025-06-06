@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <NavigationContainer>
           <Tab.Navigator tabBar={(props) => <MyTabBars {...props}/>}>
             <Tab.Screen name='Home' component={CustomerHomeScreen} options={{headerShown: false}}/>
@@ -31,7 +31,7 @@ export default function App() {
           </Tab.Navigator>
         </NavigationContainer>
         <StatusBar style="auto" />
-      </SafeAreaView>
+      </View>
     </SafeAreaProvider>
   );
 }
