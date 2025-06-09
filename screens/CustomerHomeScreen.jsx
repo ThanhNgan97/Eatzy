@@ -1,21 +1,35 @@
-import { View, StyleSheet } from 'react-native';
-import AddressBar from '../components/CustomerHome/AddressBar/index'
+import { StyleSheet, ScrollView } from 'react-native';
+import AddressBar from '../components/CustomerHome/AddressBar';
+import GreetingHeader from '../components/CustomerHome/GreetingHeader';
+import CategoryList from '../components/CustomerHome/CategoryList';
+import DiscountBanner from '../components/CustomerHome/DiscountBanner';
+import BestSellers from '../components/CustomerHome/BestSellerSection/BestSellers';
+import Delicious from '../components/CustomerHome/DeliciousSection/Delicious'
 
 const CustomerHomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <AddressBar />
-    </View>
+      <GreetingHeader />
+      <CategoryList />
+      <DiscountBanner />
+      <BestSellers/>
+      <Delicious/>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    justifyContent:'flex-start',
-    alignItems:'center'
+    backgroundColor: "#F4F8F7",
+  },
+  
+  content: {
+    paddingHorizontal: 10, 
+    paddingVertical: 20,
   },
 });
+
 
 export default CustomerHomeScreen;

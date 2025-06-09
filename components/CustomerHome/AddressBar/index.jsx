@@ -1,6 +1,4 @@
 import { View, Text } from "react-native";
-// import DynamicIcon from "../../../shared/Icons/DynamicIcon.js";
-// import DynamicIcon from "../../../shared/Icons/DynamicIcon.Js";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon.js";
 import styles from "./AddressBar.style";
 

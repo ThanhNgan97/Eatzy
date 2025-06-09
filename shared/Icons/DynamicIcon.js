@@ -1,9 +1,11 @@
 
-import { Ionicons, 
+import { 
+  Ionicons, 
   FontAwesome, 
   MaterialIcons, 
   Entypo, 
   AntDesign, 
+  MaterialCommunityIcons,
   Feather } from "@expo/vector-icons";
 
 
@@ -13,7 +15,8 @@ const ICON_SETS = {
   MaterialIcons,
   Entypo,
   AntDesign,
-  Feather
+  Feather,
+  MaterialCommunityIcons
 };
 
 const DynamicIcon = ({ type = "Ionicons", name, size = 24, color = "#000" }) => {
