@@ -1,14 +1,28 @@
 import { View, Text, Image, TouchableOpacity} from "react-native";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
+import { useNavigation } from "@react-navigation/native";
 import styles from './DeliciousItems.style'
 
 
-const DeliciousItems = ({ name, price,image, restaurant, time }) => {
+const DeliciousItems = ({ name, price,image, time }) => {
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate('CustomerCartDetailScreen', {
+      name,
+      price,
+      image,
+      time,
+    });
+  };
+
   return (
-    <View style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={handlePress}>
       <Image source={image} style={styles.image} />
       <Text style={styles.name}>{name}</Text>
-      <Text style={styles.price}>${price}</Text>
+      <Text style={styles.price}>
+        {Number(price * 1000).toLocaleString("vi-VN")} đ
+      </Text>
       <View style={styles.bestShellerIconRow}>
         <View style={styles.infoColumn}>
           <View style={styles.infoRow}>
@@ -20,7 +34,7 @@ const DeliciousItems = ({ name, price,image, restaurant, time }) => {
             <DynamicIcon type="Ionicons" name="add-outline" size={15} color="#fff" />
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

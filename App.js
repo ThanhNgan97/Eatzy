@@ -1,27 +1,77 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
-import CustomerHomeScreen from './screens/CustomerHomeScreen';
-import CustomerCartScreen from './screens/CustomerCartScreen';
-import fonts from './constants/fonts'; 
-import MyTabBars from './shared/BottomNavigation';
+import fonts from './constants/fonts';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import CustomerHomeScreen from './screens/CustomerHomeScreen';
+import CustomerCartDetailScreen from './screens/CustomerCartDetailScreen';
+import CustomerCartScreen from './screens/CustomerCartScreen';
+
+import MyTabBars from './shared/BottomNavigation';
 import DynamicIcon from './shared/Icons/DynamicIcon';
 
-
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="CustomerHomeScreen"
+        component={CustomerHomeScreen}
+        options={{ headerShown: false }}
+      />
+
+    <Stack.Screen
+      name="CustomerCartDetailScreen"
+      component={CustomerCartDetailScreen}
+      options={({ navigation }) => ({
+        headerTitle: '',
+        headerTitleAlign: 'center',
+        headerShadowVisible: false, 
+        headerStyle: {
+          backgroundColor: '#F4F8F7',
+          elevation: 0, 
+          shadowOpacity: 0,
+          shadowColor: 'transparent',
+          borderBottomWidth: 0,
+          height: 90,
+          paddingTop: 20,
+        },
+        headerLeft: () => (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <View style={styles.squareIcon}>
+              <View style={styles.iconContainer}>
+                <DynamicIcon type="Ionicons" name="arrow-back" size={20} color="#7e7e7e" />
+              </View>
+            </View>
+          </TouchableOpacity>
+        ),
+        headerLeftContainerStyle: {
+          marginLeft: 16,
+          marginTop: 10,
+        },
+      })}
+    />
+
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     [fonts.HelveticaNeueMedium]: require('./assets/fonts/HelveticaNeueMedium.otf'),
     [fonts.HelveticaNeueBold]: require('./assets/fonts/HelveticaNeueBold.otf'),
     [fonts.HelveticaNeueBlackItalic]: require('./assets/fonts/HelveticaNeueBlackItalic.otf'),
+    [fonts.HelveticaNeueMediumItalic]: require('./assets/fonts/HelveticaNeueMediumItalic.otf'),
   });
 
   if (!fontsLoaded) {
-    return null; 
+    return null;
   }
 
   return (
@@ -31,50 +81,53 @@ export default function App() {
           <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
             <Tab.Screen
               name="Home"
-              component={CustomerHomeScreen}
+              component={HomeStack}
               options={{ headerShown: false }}
             />
 
-          <Tab.Screen
-            name="Cart"
-            component={CustomerCartScreen}
-            options={({ navigation }) => ({
-              headerTitle: () => (
-                <View style={{ paddingHorizontal: 16, marginTop: 0 }}>
-                  <Text
-                    style={{
-                      color: '#7e7e7e',
-                      fontSize: 18,
-                      fontFamily: fonts.HelveticaNeueMedium,
-                    }}
-                  >
-                    Cart
-                  </Text>
-                </View>
-              ),
-              headerTitleAlign: 'center',
-              headerStyle: {
-                backgroundColor: '#F4F8F7',
-                elevation: 0,
-                shadowOpacity: 0,
-                height: 90,
-                paddingTop: 20,
-              },
-              headerLeft: () => (
+            <Tab.Screen
+              name="Cart"
+              component={CustomerCartScreen}
+              options={({ navigation }) => ({
+                headerTitle: () => (
+                  <View style={{ paddingHorizontal: 16, marginTop: 0 }}>
+                    <Text
+                      style={{
+                        color: '#7e7e7e',
+                        fontSize: 18,
+                        fontFamily: fonts.HelveticaNeueMedium,
+                      }}
+                    >
+                      Cart
+                    </Text>
+                  </View>
+                ),
+                headerTitleAlign: 'center',
+                headerStyle: {
+                  backgroundColor: '#F4F8F7',
+                  elevation: 0,
+                  shadowOpacity: 0,
+                  height: 90,
+                  paddingTop: 20,
+                },
+            headerLeft: () => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Home')}
+                style={{ marginLeft: 16 }} 
+              >
                 <View style={styles.squareIcon}>
-                  <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <View style={styles.iconContainer}>
-                      <DynamicIcon type="Ionicons" name="arrow-back" size={20} color="#7e7e7e" />
-                    </View>
-                  </TouchableOpacity>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon type="Ionicons" name="arrow-back" size={20} color="#7e7e7e" />
+                  </View>
                 </View>
-              ),
-            })}
-          />
+              </TouchableOpacity>
+            ),
+
+              })}
+            />
 
             <Tab.Screen
               name="Payment"
-            
               component={CustomerHomeScreen}
               options={{ headerShown: false }}
             />
@@ -97,20 +150,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#F4F8F7',
   },
   
-  iconContainer: {
-    paddingHorizontal: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+ squareIcon: {
+  width: 40,
+  height: 40,
+  backgroundColor: '#fff',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: 100,
+  
+},
 
-  squareIcon:{
-    width: 40,
-    height: 40,
-    backgroundColor: '#fff',
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius:100,
-    marginHorizontal:16,
-    marginTop:10
-  }
+iconContainer: {
+  paddingHorizontal: 10,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+
 });

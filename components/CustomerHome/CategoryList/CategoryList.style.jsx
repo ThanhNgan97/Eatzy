@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   categoryListContainer: {
     paddingVertical: 16,
   },
@@ -42,3 +42,5 @@ export default StyleSheet.create({
 },
 
 });
+
+export default styles

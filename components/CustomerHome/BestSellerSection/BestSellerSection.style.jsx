@@ -3,7 +3,7 @@ import fonts from "../../../constants/fonts";
 
 const {width} = Dimensions.get('window');
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   card: {
     width: 150,
     backgroundColor: "#fff",
@@ -80,3 +80,5 @@ export default StyleSheet.create({
   alignSelf: 'flex-start',
   }
 });
+
+export default styles

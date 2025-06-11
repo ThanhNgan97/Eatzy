@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   greetingHeaderRow: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -41,3 +41,5 @@ export default StyleSheet.create({
     borderRadius:100,
   },
 });
+
+export default styles

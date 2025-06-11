@@ -2,31 +2,28 @@ import { View, Text } from "react-native";
 import styles from "./CartSummary.style";
 
 const CartSummary = () => {
+  const subtotal = 21430; // 21.43 USD => 21,430 VND
+  const delivery = 5000;  // 5 USD => 5,000 VND
+  const total = subtotal + delivery;
+
+  const formatVND = (value) => `${value.toLocaleString('vi-VN')} đ`;
+
   return (
     <View style={styles.rectangleCartSummary}>
       <View style={styles.cartSummaryColumn}>
-        {/* Subtotal */}
         <View style={styles.cartSummaryRow}>
           <Text style={styles.labelText}>Subtotal</Text>
-          <Text style={styles.valueText}>$21.43</Text>
+          <Text style={styles.valueText}>{formatVND(subtotal)}</Text>
         </View>
-
-        {/* Divider */}
         <View style={styles.divider} />
-
-        {/* Delivery */}
         <View style={styles.cartSummaryRow}>
           <Text style={styles.labelText}>Delivery</Text>
-          <Text style={styles.valueText}>$5</Text>
+          <Text style={styles.valueText}>{formatVND(delivery)}</Text>
         </View>
-
-        {/* Divider */}
         <View style={styles.divider} />
-
-        {/* Total */}
         <View style={styles.cartSummaryRow}>
           <Text style={styles.totalLabel}>Total</Text>
-          <Text style={styles.totalValue}>$26.43</Text>
+          <Text style={styles.totalValue}>{formatVND(total)}</Text>
         </View>
       </View>
     </View>

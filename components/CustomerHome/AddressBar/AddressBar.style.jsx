@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   addressRectangle: {
     backgroundColor: "#E5F4EA",
     borderRadius: 12,
@@ -27,3 +27,5 @@ export default StyleSheet.create({
     fontFamily:fonts.HelveticaNeueMedium
   },
 });
+
+export default styles

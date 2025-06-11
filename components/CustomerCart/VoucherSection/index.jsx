@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 import styles from "./VoucherSection.style";
+
 const VoucherSection = () => {
   return (
     <View style={styles.rectangleVoucherSection}>

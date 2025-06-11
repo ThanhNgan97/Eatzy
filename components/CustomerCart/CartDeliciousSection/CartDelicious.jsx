@@ -6,37 +6,37 @@ import CartDeliciousItem from "./CartDeliciousItem";
 const data = [
   {
     name: "Melting Cheese Pizza",
-    price: "10.99",
+    price: "90000",
     image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
   },
 
- {
+  {
     name: "Melting Cheese Pizza",
-    price: "10.99",
+    price: "90000",
     image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
   },
 
- {
+  {
     name: "Melting Cheese Pizza",
-    price: "10.99",
+    price: "90000",
     image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
   },
 
- {
+  {
     name: "Melting Cheese Pizza",
-    price: "10.99",
+    price: "90000",
     image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
   },
 
-   {
+  {
     name: "Melting Cheese Pizza",
-    price: "10.99",
+    price: "90000",
     image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
   },
 
-   {
+  {
     name: "Melting Cheese Pizza",
-    price: "10.99",
+    price: "90000",
     image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
   },
 ];

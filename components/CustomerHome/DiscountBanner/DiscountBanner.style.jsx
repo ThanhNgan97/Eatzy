@@ -4,7 +4,7 @@ import { Dimensions, StyleSheet } from "react-native";
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = width * 0.85;
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     width,
@@ -29,3 +29,5 @@ image: {
 },
 
 });
+
+export default styles

@@ -1,12 +1,12 @@
-import { StyleSheet } from 'react-native';
-import fonts from '../../../constants/fonts';
+import { StyleSheet } from "react-native";
+import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   card: {
-    flex:1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
     borderRadius: 16,
     padding: 12,
     marginBottom: 12,
@@ -25,31 +25,31 @@ export default StyleSheet.create({
 
   name: {
     fontSize: 14,
-    color: '#7e7e7e',
+    color: "#7e7e7e",
     marginBottom: 4,
-    fontFamily:fonts.HelveticaNeueMedium
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 
   price: {
     fontSize: 16,
-    color: '#33363F',
-    fontFamily:fonts.HelveticaNeueBold
+    color: "#33363F",
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   quantityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
-    marginTop:40
+    marginTop: 40,
   },
 
   iconButton: {
-    backgroundColor: '#68BD6C',
+    backgroundColor: "#68BD6C",
     width: 20,
     height: 20,
     borderRadius: 6,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   quantityText: {
@@ -57,3 +57,5 @@ export default StyleSheet.create({
     marginHorizontal: 4,
   },
 });
+
+export default styles;

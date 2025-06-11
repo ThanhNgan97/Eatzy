@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   rectangleCartSummary: {
     backgroundColor: "#fff",
     borderRadius: 12,
@@ -51,3 +51,5 @@ export default StyleSheet.create({
     color:"#33363F",
   },
 });
+
+export default styles

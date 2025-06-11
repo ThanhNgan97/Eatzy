@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   rectangleVoucherSection: {
     backgroundColor: "#fff",
     borderRadius: 12,
@@ -45,3 +45,5 @@ applyText: {
     textAlign:'center',
   },
 });
+
+export default styles
