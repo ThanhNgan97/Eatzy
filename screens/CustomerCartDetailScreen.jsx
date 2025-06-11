@@ -19,7 +19,7 @@ const CustomerCartDetailScreen = () => {
 }
 
 const styles = StyleSheet.create({
-     container: {
+    container: {
     flex: 1,
     backgroundColor: "#F4F8F7",
   },

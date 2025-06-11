@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CustomerHomeScreen from './screens/CustomerHomeScreen';
 import CustomerCartDetailScreen from './screens/CustomerCartDetailScreen';
 import CustomerCartScreen from './screens/CustomerCartScreen';
+import CustomerSelectAddressScreen from './screens/CustomerSelectAddressScreen'
 
 import MyTabBars from './shared/BottomNavigation';
 import DynamicIcon from './shared/Icons/DynamicIcon';
@@ -58,6 +59,55 @@ function HomeStack() {
       })}
     />
 
+  <Stack.Screen
+  name="CustomerSelectAddressScreen"
+  component={CustomerSelectAddressScreen}
+  options={({ navigation }) => ({
+    headerTitle: () => (
+      <Text
+        style={{
+          fontSize: 16,
+          color: '#7e7e7e',
+          fontFamily: fonts.HelveticaNeueMedium,
+        }}
+      >
+        Select Address
+      </Text>
+    ),
+    headerTitleAlign: 'center',
+    headerStyle: {
+      backgroundColor: '#F4F8F7',
+      elevation: 0,
+      shadowOpacity: 0,
+      borderBottomWidth: 0,
+      height: 90,
+      paddingTop: 20,
+    },
+    headerShadowVisible: false,
+    headerLeft: () => (
+      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <View style={styles.squareIcon}>
+          <View style={styles.iconContainer}>
+            <DynamicIcon
+              type="Ionicons"
+              name="arrow-back"
+              size={20}
+              color="#7e7e7e"
+            />
+          </View>
+        </View>
+      </TouchableOpacity>
+    ),
+    headerLeftContainerStyle: {
+      marginLeft: 16,
+      marginTop: 10,
+    },
+  })}
+/>
+
+
+
+    
     </Stack.Navigator>
   );
 }
@@ -112,7 +162,7 @@ export default function App() {
                 },
             headerLeft: () => (
               <TouchableOpacity
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.navigate("Home")}
                 style={{ marginLeft: 16 }} 
               >
                 <View style={styles.squareIcon}>

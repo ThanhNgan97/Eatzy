@@ -9,12 +9,12 @@ import Delicious from '../components/CustomerHome/DeliciousSection/Delicious'
 const CustomerHomeScreen = () => {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <AddressBar />
-      <GreetingHeader />
-      <CategoryList />
-      <DiscountBanner />
-      <BestSellers/>
-      <Delicious/>
+        <AddressBar />
+        <GreetingHeader />
+        <CategoryList />
+        <DiscountBanner />
+        <BestSellers/>
+        <Delicious/>
     </ScrollView>
   );
 };
