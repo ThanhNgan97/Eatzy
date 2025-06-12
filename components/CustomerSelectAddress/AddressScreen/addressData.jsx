@@ -1,4 +1,3 @@
-// addressData.js
 const addresses = [
   {
     id: 1,

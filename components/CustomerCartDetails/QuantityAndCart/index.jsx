@@ -21,7 +21,7 @@ const QuantityAndCart = () => {
     <View style={styles.wrapper}>
       <View style={styles.quantityContainer}>
         <TouchableOpacity onPress={decrement} style={styles.iconBox}>
-          <DynamicIcon type ="MaterialIcons" name="delete-outline" size={20} color="#7e7e7e" />
+          <DynamicIcon type ="MaterialIcons" name="delete-outline" size={20} color="#7E7E7E" />
         </TouchableOpacity>
 
         <Text style={styles.quantityText}>{quantity}</Text>
