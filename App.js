@@ -13,7 +13,9 @@ import CustomerCartScreen from './screens/CustomerCartScreen';
 import CustomerSelectAddressScreen from './screens/CustomerSelectAddressScreen';
 import CustomerEditAddressScreen from "./screens/CustomerEditAddressScreen";
 import CustomerFoodListScreen from './screens/CustomerFoodListScreen';
-import CustomerFastFoodScreen from './screens/CustomerFastFoodScreen'
+import CustomerFastFoodScreen from './screens/CustomerFastFoodScreen';
+import CustomerDrinksScreen from './screens/CustomerDrinksScreen';
+import CustomerDessertScreen from './screens/CustomerDessertScreen'
 
 import SearchBar from './shared/SearchBar/index'
 
@@ -203,13 +205,13 @@ function HomeStack() {
       />  
 
 
-            <Stack.Screen
+      <Stack.Screen
         name="CustomerFastFoodScreen"
         component={CustomerFastFoodScreen}
         options={({ navigation }) => ({
          headerTitle: () => (
             <View style={{ width: '110%' }}>
-              <SearchBar placeholder="Search for food" />
+              <SearchBar placeholder="Search for fastfood" />
             </View>
         ),
           headerTitleAlign: 'left',
@@ -246,6 +248,98 @@ function HomeStack() {
           },
         })}
       />
+
+
+      <Stack.Screen
+        name="CustomerDrinksScreen"
+        component={CustomerDrinksScreen}
+        options={({ navigation }) => ({
+         headerTitle: () => (
+            <View style={{ width: '110%' }}>
+              <SearchBar placeholder="Search for drink" />
+            </View>
+        ),
+          headerTitleAlign: 'left',
+
+          headerTitleAlign: 'left', 
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#F4F8F7',
+            elevation: 0,
+            shadowOpacity: 0,
+            shadowColor: 'transparent',
+            borderBottomWidth: 0,
+            height: 90,
+            paddingTop: 20,
+            
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <View style={styles.squareIcon}>
+                <View style={styles.iconContainer}>
+                  <DynamicIcon
+                    type="Ionicons"
+                    name="arrow-back"
+                    size={20}
+                    color="#7e7e7e"
+                  />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 16,
+            marginTop: 10,
+          },
+        })}
+      />
+
+
+      <Stack.Screen
+        name="CustomerDessertScreen"
+        component={CustomerDessertScreen}
+        options={({ navigation }) => ({
+         headerTitle: () => (
+            <View style={{ width: '110%' }}>
+              <SearchBar placeholder="Search for dessert" />
+            </View>
+        ),
+          headerTitleAlign: 'left',
+
+          headerTitleAlign: 'left', 
+          headerShadowVisible: false,
+          headerStyle: {
+            backgroundColor: '#F4F8F7',
+            elevation: 0,
+            shadowOpacity: 0,
+            shadowColor: 'transparent',
+            borderBottomWidth: 0,
+            height: 90,
+            paddingTop: 20,
+            
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <View style={styles.squareIcon}>
+                <View style={styles.iconContainer}>
+                  <DynamicIcon
+                    type="Ionicons"
+                    name="arrow-back"
+                    size={20}
+                    color="#7e7e7e"
+                  />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 16,
+            marginTop: 10,
+          },
+        })}
+      />
+
+
     </Stack.Navigator>
   );
 }

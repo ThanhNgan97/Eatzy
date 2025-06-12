@@ -4,22 +4,22 @@ import FoodListItems from "./FoodListItem";
 import dailyMeals from "./foodData";
 
 const FoodList = () => {
-  const mergedMeals = [
+  const mergedFoods = [
     ...dailyMeals.breakfast,
     ...dailyMeals.lunch,
     ...dailyMeals.dinner,
   ];
 
-  const groupedMeals = [];
-  for (let i = 0; i < mergedMeals.length; i += 2) {
-    groupedMeals.push(mergedMeals.slice(i, i + 2));
+  const groupedFoods = [];
+  for (let i = 0; i < mergedFoods.length; i += 2) {
+    groupedFoods.push(mergedFoods.slice(i, i + 2));
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Food</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {groupedMeals.map((row, rowIndex) => (
+        {groupedFoods.map((row, rowIndex) => (
           <View style={styles.row} key={rowIndex}>
             {row.map((item, index) => (
               <FoodListItems key={index} {...item} />

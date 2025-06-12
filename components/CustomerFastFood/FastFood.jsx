@@ -4,22 +4,22 @@ import fonts from "../../constants/fonts";
 import fastFoodData from "./fastFoodData"
 
 const FastFood = () => {
-  const mergedMeals = [
+  const mergedFastFoods = [
     ...fastFoodData.breakfast,
     ...fastFoodData.lunch,
     ...fastFoodData.dinner,
   ];
 
-  const groupedMeals = [];
-  for (let i = 0; i < mergedMeals.length; i += 2) {
-    groupedMeals.push(mergedMeals.slice(i, i + 2));
+  const groupedFastFoods = [];
+  for (let i = 0; i < mergedFastFoods.length; i += 2) {
+    groupedFastFoods.push(mergedFastFoods.slice(i, i + 2));
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Fast Food</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {groupedMeals.map((row, rowIndex) => (
+        {groupedFastFoods.map((row, rowIndex) => (
           <View style={styles.row} key={rowIndex}>
             {row.map((item, index) => (
               <FastFoodItems key={index} {...item} />
