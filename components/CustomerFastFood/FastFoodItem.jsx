@@ -1,13 +1,13 @@
-import { View, Text, Image, TouchableOpacity} from "react-native";
-import DynamicIcon from "../../../shared/Icons/DynamicIcon";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import DynamicIcon from "../../shared/Icons/DynamicIcon";
 import { useNavigation } from "@react-navigation/native";
-import styles from "./FoodList.style";
+import styles from "./FastFood.style";
 
-const FoodListItems = ({ name, price,image, time }) => {
+const FastFoodItems = ({ name, price, image, time }) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate('CustomerCartDetailScreen', {
+    navigation.navigate("CustomerCartDetailScreen", {
       name,
       price,
       image,
@@ -25,17 +25,26 @@ const FoodListItems = ({ name, price,image, time }) => {
       <View style={styles.bestShellerIconRow}>
         <View style={styles.infoColumn}>
           <View style={styles.infoRow}>
-            <DynamicIcon type="MaterialCommunityIcons" name="clock-time-nine-outline" size={14} color="#7e7e7e"/>
+            <DynamicIcon
+              type="MaterialCommunityIcons"
+              name="clock-time-nine-outline"
+              size={14}
+              color="#7e7e7e"
+            />
             <Text style={styles.time}>{time} min</Text>
           </View>
         </View>
         <TouchableOpacity style={styles.addIcon}>
-            <DynamicIcon type="Ionicons" name="add-outline" size={15} color="#fff" />
+          <DynamicIcon
+            type="Ionicons"
+            name="add-outline"
+            size={15}
+            color="#fff"
+          />
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
 };
 
-
-export default FoodListItems;
+export default FastFoodItems;

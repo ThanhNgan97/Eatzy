@@ -1,16 +1,18 @@
-import React from 'react'
-import { ScrollView, StyleSheet } from 'react-native';
-import FoodList from '../components/CustomerFoodList/Food/FoodList';
+import React from "react";
+import { ScrollView, StyleSheet } from "react-native";
+import FoodList from "../components/CustomerFoodList/FoodList";
 
 const CustomerCategoryList = () => {
   return (
-    <ScrollView  style={styles.container}
+    <ScrollView
+      style={styles.container}
       contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled">
-        <FoodList/>
+      keyboardShouldPersistTaps="handled"
+    >
+      <FoodList />
     </ScrollView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -24,5 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default CustomerCategoryList
+export default CustomerCategoryList;

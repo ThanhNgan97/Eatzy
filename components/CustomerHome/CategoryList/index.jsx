@@ -4,24 +4,24 @@ import { useNavigation } from "@react-navigation/native";
 import categories from "./categoriesData";
 
 const screenMap = {
-  Food: "CustomerFoodListScreen",
-  FastFood: "CustomerFastFoodScreen",
-  Drinks: "CustomerDrinksScreen",
-  Dessert: "CustomerDessertScreen",
+  food: "CustomerFoodListScreen",
+  fastfood: "CustomerFastFoodScreen",
+  drinks: "CustomerDrinksScreen",
+  dessert: "CustomerDessertScreen",
 };
 
 const Index = () => {
   const navigation = useNavigation();
 
-  const handleCategoryPress = (category) => {
-    const screen = screenMap[category];
+  const handleCategoryPress = (categoryValue) => {
+    const screen = screenMap[categoryValue];
     if (screen) {
       navigation.navigate("Home", {
         screen,
-        params: { category },
+        params: { category: categoryValue },
       });
     } else {
-      console.log(`No screen mapped for category: ${category}`);
+      console.log(`No screen mapped for category: ${categoryValue}`);
     }
   };
 
@@ -32,7 +32,7 @@ const Index = () => {
           {categories.map((item, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => handleCategoryPress(item.label)}
+              onPress={() => handleCategoryPress(item.value)}
               style={styles.categoryListSquare}
             >
               <View style={styles.categoryListColumn}>

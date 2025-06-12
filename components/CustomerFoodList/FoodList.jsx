@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import fonts from "../../../constants/fonts";
+import fonts from "../../constants/fonts";
 import FoodListItems from "./FoodListItem";
 import dailyMeals from "./foodData";
 
@@ -36,16 +36,16 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 10,
     flex: 1,
-    marginTop:-30
+    marginTop: -30,
   },
 
   title: {
-    fontSize: 20,
+    fontSize: 18,
     marginBottom: 12,
-    fontFamily: fonts.HelveticaNeueBold,
-    color:'#1E1E1E'
+    fontFamily: fonts.HelveticaNeueMedium,
+    color: "#1E1E1E",
   },
-  
+
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
