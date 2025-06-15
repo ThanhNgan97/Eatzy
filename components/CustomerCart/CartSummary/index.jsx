@@ -2,8 +2,8 @@ import { View, Text } from "react-native";
 import styles from "./CartSummary.style";
 
 const CartSummary = () => {
-  const subtotal = 21430; // 21.43 USD => 21,430 VND
-  const delivery = 5000;  // 5 USD => 5,000 VND
+  const subtotal = 21430; 
+  const delivery = 5000;  
   const total = subtotal + delivery;
 
   const formatVND = (value) => `${value.toLocaleString('vi-VN')} đ`;

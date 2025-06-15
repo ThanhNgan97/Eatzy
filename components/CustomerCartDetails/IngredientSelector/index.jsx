@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
 import ingredientsData from './ingrediensData';
 import styles from './IngredientSelector.style';
 import DynamicIcon from '../../../shared/Icons/DynamicIcon';
@@ -45,15 +44,15 @@ const IngredientSelector = () => {
                 </Text>
               </View>
            <View
-  style={[
-    styles.customCheckbox,
-    isSelected ? styles.checkboxSelected : styles.checkboxUnselected,
-  ]}
->
-  {isSelected && (
-    <DynamicIcon type="MaterialIcons" name="check" size={14} color="#fff" />
-  )}
-</View>
+              style={[
+                styles.customCheckbox,
+                isSelected ? styles.checkboxSelected : styles.checkboxUnselected,
+              ]}
+            >
+              {isSelected && (
+                <DynamicIcon type="MaterialIcons" name="check" size={14} color="#fff" />
+              )}
+          </View>
 
             </TouchableOpacity>
           );

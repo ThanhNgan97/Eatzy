@@ -12,34 +12,55 @@ const styles = StyleSheet.create({
 
   greetingHeaderColumn: {
     flexDirection: "column",
-    flex:1
+    flex: 1,
   },
 
   greetingHeaderHello: {
     fontSize: 12,
-    fontFamily: fonts.HelveticaNeueMedium, 
+    fontFamily: fonts.HelveticaNeueMedium,
     color: "#7e7e7e",
   },
 
   greetingHeaderUser: {
     fontSize: 16,
-    fontFamily: fonts.HelveticaNeueBold, 
+    fontFamily: fonts.HelveticaNeueBold,
     color: "#33363F",
   },
 
   greetingHeaderIconRow: {
     flexDirection: "row",
     gap: 12,
+    alignItems: "center",
   },
 
   greetingHeaderSquare: {
     width: 40,
     height: 40,
-    backgroundColor: '#fff',
+    borderRadius: 100,
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius:100,
+    paddingHorizontal: 8,
   },
+
+  searchWrapper: {
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    paddingHorizontal: 12,
+    flex: 1,
+    marginRight: 12,
+},
+
+  searchInput: {
+    fontSize: 14,
+    color: "#7e7e7e",
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+    fontFamily:fonts.HelveticaNeueMedium
+  },
+
 });
 
-export default styles
+export default styles;

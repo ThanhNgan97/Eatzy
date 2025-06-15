@@ -1,8 +1,18 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 import styles from "./VoucherSection.style";
 
 const VoucherSection = () => {
+  const navigation = useNavigation(); 
+
+const handleApplyPress = () => {
+  navigation.navigate('Home', {
+    screen: 'CustomerVoucherScreen',
+  });
+};
+
+
   return (
     <View style={styles.rectangleVoucherSection}>
       <View style={styles.voucherSectionRow}>
@@ -15,7 +25,10 @@ const VoucherSection = () => {
           />
           <Text style={styles.voucherText}>Voucher</Text>
         </View>
-        <TouchableOpacity style={styles.voucherSectionApply}>
+        <TouchableOpacity
+          style={styles.voucherSectionApply}
+          onPress={handleApplyPress} 
+        >
           <Text style={styles.applyText}>Apply</Text>
         </TouchableOpacity>
       </View>

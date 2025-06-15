@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
   totalLabel: {
     fontSize: 16,
     fontFamily: fonts.HelveticaNeueBold,
-    color:"#33363F",
+    color:"#68BD6C",
   },
 
   totalValue: {
     fontSize: 16,
     fontFamily: fonts.HelveticaNeueBold,
-    color:"#33363F",
+    color:"#68BD6C",
   },
 });
 
