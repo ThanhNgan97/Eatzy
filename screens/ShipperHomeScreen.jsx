@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { ScrollView, View, StyleSheet } from "react-native";
 import ShipperHeader from "../components/ShipperHome/ShipperHeader";
 import AddressBar from "../components/ShipperHome/AddressBar";
 import MapSection from "../components/ShipperHome/MapSection";
@@ -7,22 +7,22 @@ import ShipperProfileCard from "../components/ShipperHome/ShipperProfileCard";
 
 const ShipperHomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
       <ShipperHeader />
       <AddressBar />
       <MapSection />
       <ShipperProfileCard />
-    </View>
+    </ScrollView>
   );
 };
 
 export default ShipperHomeScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f6f6f6",
+  scrollContainer: {
     paddingHorizontal: 20,
     paddingTop: 60,
+    paddingBottom: 40,
+    backgroundColor: "#F2F2F2",
   },
 });
