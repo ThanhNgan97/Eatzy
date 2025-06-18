@@ -61,7 +61,6 @@ const VoucherTermsModal = ({ visible, onClose, validFrom, validTo }) => {
               </View>
             </View>
 
-            {/* Details Section */}
             <View style={styles.sectionTAndCs}>
               <Text style={styles.sectionTitleTAndCs}>Valid Period</Text>
               <Text style={styles.sectionTextTAndCs}>
@@ -76,9 +75,9 @@ const VoucherTermsModal = ({ visible, onClose, validFrom, validTo }) => {
 
               <Text style={styles.sectionTitleTAndCs}>More Details</Text>
               <Text style={styles.sectionTextTAndCs}>
-                Maximum discount ₫500K for orders from $0. Applicable shipping
+                Maximum discount 500đ for orders from 0đ. Applicable shipping
                 units: Express, International, and Express & Self-select.
-                Shipping unit: Choice - Express when purchasing from Shopee
+                Shipping unit: Choice - Express when purchasing from Eatzy
                 Choice stores.{"\n"}Only applicable to specific users. The number
                 of uses is limited, and the program and code may end when the
                 offer is fully used or when the offer expires, whichever comes

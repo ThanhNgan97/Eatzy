@@ -18,10 +18,12 @@ import CustomerFoodListScreen from './screens/CustomerFoodListScreen';
 import CustomerFastFoodScreen from './screens/CustomerFastFoodScreen';
 import CustomerDrinksScreen from './screens/CustomerDrinksScreen';
 import CustomerDessertScreen from './screens/CustomerDessertScreen';
-import CustomerVoucherScreen from './screens/CustomerVoucherScreen'
+import CustomerVoucherScreen from './screens/CustomerVoucherScreen';
+import CustomerPaymentScreen from "./screens/CustomerPaymentScreen";
+import CustomerPaymentMethodScreen from "./screens/CustomerPaymentMethodScreen"
 
+import AddressBar from './shared/AddressBar/index'
 import SearchBar from './shared/SearchBar/index'
-
 import MyTabBars from './shared/BottomNavigation';
 import DynamicIcon from './shared/Icons/DynamicIcon';
 
@@ -53,6 +55,225 @@ function getTabBarVisibility(route) {
 
 const HomeStack = createNativeStackNavigator();
 
+function PaymentStackScreen() {
+  return (
+    <Stack.Navigator>
+       <Stack.Screen
+          name="Payment"
+          component={CustomerPaymentScreen}
+          options={({ navigation }) => ({
+          header: () => (
+            <View
+              style={{
+                backgroundColor: '#F4F8F7',
+                paddingTop: 30,
+                paddingHorizontal: 16,
+                paddingBottom: 10,
+              }}
+            >
+            <TouchableOpacity 
+              onPress={() => navigation.navigate("CustomerSelectAddressScreen")}
+              style={{ marginBottom: 10 }}
+            >
+                <AddressBar />
+            </TouchableOpacity>
+
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginTop: 8,
+                }}
+              >
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Home")}
+                  style={{ position: 'absolute', left: 0 }}
+                >
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 100,
+                      backgroundColor: '#fff',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={18}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </TouchableOpacity>
+                <Text
+                  style={{
+                    color: '#7e7e7e',
+                    fontSize: 18,
+                    textAlign: 'center',
+                    fontFamily: fonts.HelveticaNeueMedium,
+                  }}
+                >
+                  Payment
+                </Text>
+              </View>
+            </View>
+          ),
+
+          })}
+        />
+      <Stack.Screen
+          name="CustomerSelectAddressScreen"
+          component={CustomerSelectAddressScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Select Address
+              </Text>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+          })}
+        />
+
+
+        <Stack.Screen
+          name="CustomerEditAddressScreen"
+          component={CustomerEditAddressScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Edit Address
+              </Text>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+          })}
+    />
+        
+      <Stack.Screen 
+        name="CustomerCartScreen"
+        component={CustomerCartScreen} 
+        options={{headerShown:false}}
+      />
+
+            <Stack.Screen
+          name="CustomerPaymentMethodScreen"
+          component={CustomerPaymentMethodScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Payment Methods
+              </Text>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+          })}
+        />
+
+    </Stack.Navigator>
+  )
+}
+
 function HomeStackScreen() {
   return (
     <Stack.Navigator>
@@ -66,85 +287,86 @@ function HomeStackScreen() {
         name="CustomerCartScreen"
         component={CustomerCartScreen}
         options={{ headerShown: false }}
-    />
+      />
 
-    <Stack.Screen
-      name="CustomerCartDetailScreen"
-      component={CustomerCartDetailScreen}
-      options={({ navigation }) => ({
-        headerTitle: '',
-        headerTitleAlign: 'center',
-        headerShadowVisible: false, 
-        headerStyle: {
-          backgroundColor: '#F4F8F7',
-          elevation: 0, 
-          shadowOpacity: 0,
-          shadowColor: 'transparent',
-          borderBottomWidth: 0,
-          height: 90,
-          paddingTop: 20,
-        },
-        headerLeft: () => (
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <View style={styles.squareIcon}>
-              <View style={styles.iconContainer}>
-                <DynamicIcon type="Ionicons" name="arrow-back" size={20} color="#7e7e7e" />
-              </View>
-            </View>
-          </TouchableOpacity>
-        ),
-        headerLeftContainerStyle: {
-          marginLeft: 16,
-          marginTop: 10,
-        },
-      })}
-    />
 
       <Stack.Screen
-      name="CustomerSelectAddressScreen"
-      component={CustomerSelectAddressScreen}
-      options={({ navigation }) => ({
-        headerTitle: () => (
-          <Text
-            style={{
-              fontSize: 16,
-              color: '#7e7e7e',
-              fontFamily: fonts.HelveticaNeueMedium,
-            }}
-          >
-            Select Address
-          </Text>
-        ),
-        headerTitleAlign: 'center',
-        headerStyle: {
-          backgroundColor: '#F4F8F7',
-          elevation: 0,
-          shadowOpacity: 0,
-          borderBottomWidth: 0,
-          height: 90,
-          paddingTop: 20,
-        },
-        headerShadowVisible: false,
-        headerLeft: () => (
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <View style={styles.squareIcon}>
-              <View style={styles.iconContainer}>
-                <DynamicIcon
-                  type="Ionicons"
-                  name="arrow-back"
-                  size={20}
-                  color="#7e7e7e"
-                />
+        name="CustomerCartDetailScreen"
+        component={CustomerCartDetailScreen}
+        options={({ navigation }) => ({
+          headerTitle: '',
+          headerTitleAlign: 'center',
+          headerShadowVisible: false, 
+          headerStyle: {
+            backgroundColor: '#F4F8F7',
+            elevation: 0, 
+            shadowOpacity: 0,
+            shadowColor: 'transparent',
+            borderBottomWidth: 0,
+            height: 90,
+            paddingTop: 20,
+          },
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <View style={styles.squareIcon}>
+                <View style={styles.iconContainer}>
+                  <DynamicIcon type="Ionicons" name="arrow-back" size={20} color="#7e7e7e" />
+                </View>
               </View>
-            </View>
-          </TouchableOpacity>
-        ),
-        headerLeftContainerStyle: {
-          marginLeft: 16,
-          marginTop: 10,
-        },
-      })}
-    />
+            </TouchableOpacity>
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 16,
+            marginTop: 10,
+          },
+        })}
+      />
+
+      <Stack.Screen
+        name="CustomerSelectAddressScreen"
+        component={CustomerSelectAddressScreen}
+        options={({ navigation }) => ({
+          headerTitle: () => (
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#7e7e7e',
+                fontFamily: fonts.HelveticaNeueMedium,
+              }}
+            >
+              Select Address
+            </Text>
+          ),
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#F4F8F7',
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+            height: 90,
+            paddingTop: 20,
+          },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <View style={styles.squareIcon}>
+                <View style={styles.iconContainer}>
+                  <DynamicIcon
+                    type="Ionicons"
+                    name="arrow-back"
+                    size={20}
+                    color="#7e7e7e"
+                  />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ),
+          headerLeftContainerStyle: {
+            marginLeft: 16,
+            marginTop: 10,
+          },
+        })}
+      />
 
     <Stack.Screen
       name="CustomerEditAddressScreen"
@@ -172,7 +394,7 @@ function HomeStackScreen() {
         },
         headerShadowVisible: false,
         headerLeft: () => (
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <View style={styles.squareIcon}>
               <View style={styles.iconContainer}>
                 <DynamicIcon
@@ -471,56 +693,66 @@ export default function App() {
         />
 
 
-          <Tab.Screen
-            name="Cart"
-            component={CustomerCartScreen}
-            options={({ navigation }) => ({
-              headerTitle: () => (
-                <View style={{ paddingHorizontal: 16 }}>
-                  <Text
-                    style={{
-                      color: '#7e7e7e',
-                      fontSize: 18,
-                      fontFamily: fonts.HelveticaNeueMedium,
-                    }}
-                  >
-                    Cart
-                  </Text>
-                </View>
-              ),
-              headerTitleAlign: 'center',
-              headerStyle: {
-                backgroundColor: '#F4F8F7',
-                elevation: 0,
-                shadowOpacity: 0,
-                height: 90,
-                paddingTop: 20,
-              },
-              headerLeft: () => (
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Home")}
-                  style={{ marginLeft: 16 }}
+        <Tab.Screen
+          name="Cart"
+          component={CustomerCartScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <View style={{ paddingHorizontal: 16 }}>
+                <Text
+                  style={{
+                    color: '#7e7e7e',
+                    fontSize: 18,
+                    fontFamily: fonts.HelveticaNeueMedium,
+                  }}
                 >
-                  <View style={styles.squareIcon}>
-                    <View style={styles.iconContainer}>
-                      <DynamicIcon
-                        type="Ionicons"
-                        name="arrow-back"
-                        size={20}
-                        color="#7e7e7e"
-                      />
-                    </View>
+                  Cart
+                </Text>
+              </View>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerLeft: () => (
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Home")}
+                style={{ marginLeft: 16 }}
+              >
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
                   </View>
-                </TouchableOpacity>
-              ),
-            })}
-          />
+                </View>
+              </TouchableOpacity>
+            ),
+          })}
+        />
 
-          <Tab.Screen
-            name="Payment"
-            component={CustomerHomeScreen}
-            options={{ headerShown: false }}
-          />
+
+        <Tab.Screen
+          name="Payment"
+          component={PaymentStackScreen}
+          options={({ route }) => ({
+            headerShown: false,
+            tabBarStyle: {
+              display: getTabBarVisibility(route),
+              backgroundColor: '#fff',
+              borderTopWidth: 0,
+              elevation: 0,
+            },
+          })}
+        />
+
 
           <Tab.Screen
             name="Profile"

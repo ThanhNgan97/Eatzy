@@ -26,12 +26,12 @@ const VoucherSupportModal = ({ showModal, setShowModal }) => {
         <View style={styles.content}>
           <Text style={styles.sectionTitle}>How to Use Voucher </Text>
           <Text style={styles.sectionText}>
-            To apply a Shopee voucher, please press the "Save" button to get the voucher to your voucher wallet.
+            To apply a Eatzy voucher, please press the "Save" button to get the voucher to your voucher wallet.
           </Text>
 
           <Text style={styles.sectionTitle}>How to Find Voucher</Text>
           <Text style={styles.sectionText}>
-            You can find Shopee Vouchers throughout the Shopee.vn website and app. 
+            You can find Eatzy Vouchers throughout the Eatzy.vn website and app. 
             A tip for you is to start from the promotional pages and your voucher page!
           </Text>
         </View>

@@ -59,12 +59,12 @@ const styles = StyleSheet.create({
   },
 
   usedText: {
-    fontSize: 10,
+    fontSize: 12,
     color: "#777",
   },
 
   tcText: {
-    fontSize: 10,
+    fontSize: 12,
     color: "#68BD6C",
   },
 
@@ -235,6 +235,7 @@ modalOverlay: {
     fontFamily:fonts.HelveticaNeueBold,
     fontSize: 14,
     marginBottom: 6,
+    color:'#484C4D'
   },
 
   sectionText: {
@@ -337,7 +338,7 @@ modalOverlay: {
 
   tcTextTAndCs: {
     fontSize: 12,
-    fontFamily: fonts.HelveticaNeueBold,
+    fontFamily: fonts.HelveticaNeueMedium,
     color: "#68BD6C",
   },
 
