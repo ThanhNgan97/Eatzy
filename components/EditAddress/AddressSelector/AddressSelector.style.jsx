@@ -9,27 +9,37 @@ const styles = StyleSheet.create({
     marginVertical: -16,
     marginHorizontal:10
   },
+
   label: {
     color: '#7e7e7e',
     fontSize: 12,
     marginBottom: 4,
     fontFamily:fonts.HelveticaNeueMedium
   },
+
   content: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    paddingTop: 6,
+    paddingHorizontal: 10,
+    gap: 8
   },
+
   locationText: {
-    color: '#000',
     fontSize: 14,
+    color: '#333',
+    marginBottom: 4,
+    flexWrap: 'wrap',
+    flexShrink: 1,
+    width: '100%',
     lineHeight: 20,
+    fontFamily:fonts.HelveticaNeueMedium
   },
+
   icon: {
     width: 16,
     height: 16,
     tintColor: '#ccc',
   },
+
   row: {
     flexDirection:"row",
     justifyContent:'space-between'
@@ -40,13 +50,21 @@ const styles = StyleSheet.create({
   },
 
 mapWrapper: {
-  marginTop: 10,
   height: 130,
-  borderRadius: 8,
+  borderRadius: 10,
   overflow: 'hidden',
   width: '100%',
-}
+},
 
+textBlock:{
+  flex:1,
+  marginTop:-70,
+  marginRight:5
+},
+
+addressLine:{
+  marginLeft:-5
+}
 
 
 });
