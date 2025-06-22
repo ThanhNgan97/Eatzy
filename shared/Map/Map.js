@@ -41,7 +41,6 @@ const MapScreen = ({ mini = false }) => {
       setRegion(newRegion);
       setLoading(false);
 
-      // Chỉ animate khi không phải bản đồ mini
       if (!mini) {
         mapRef.current?.animateToRegion(newRegion, 1000);
       }
@@ -62,7 +61,7 @@ const MapScreen = ({ mini = false }) => {
   if (loading || !region) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
+        <ActivityIndicator size="large" color="#68BD6C" />
         <Text style={{ marginTop: 10 }}>Đang lấy vị trí...</Text>
       </View>
     );
@@ -99,7 +98,7 @@ return (
                     name="map-marker-alt" 
                     size={15} color="#fff" 
                     />
-            <Text style={styles.buttonText}>Vị trí của tôi</Text>
+                <Text style={styles.buttonText}>My Location</Text>
             </View>
         </TouchableOpacity>
       </View>
@@ -140,11 +139,11 @@ const styles = StyleSheet.create({
   },
 
   floatingButtonContainer: {
-  position: 'absolute',
-  top: '35%', 
-  left: '60%',
-  transform: [{ translateX: -100 }], 
-  zIndex: 999,
+    position: 'absolute',
+    top: '35%', 
+    left: '60%',
+    transform: [{ translateX: -100 }], 
+    zIndex: 999,
 },
 
 buttonRow:{
