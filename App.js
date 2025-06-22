@@ -20,7 +20,9 @@ import CustomerDrinksScreen from './screens/CustomerDrinksScreen';
 import CustomerDessertScreen from './screens/CustomerDessertScreen';
 import CustomerVoucherScreen from './screens/CustomerVoucherScreen';
 import CustomerPaymentScreen from "./screens/CustomerPaymentScreen";
-import CustomerPaymentMethodScreen from "./screens/CustomerPaymentMethodScreen"
+import CustomerPaymentMethodScreen from "./screens/CustomerPaymentMethodScreen";
+import CustomerProvinceScreen from "./screens/CustomerProvinceScreen";
+import CustomerMapPickerScreen from "./shared/Map/CustomerMapPickerScreen"
 
 import AddressBar from './shared/AddressBar/index'
 import SearchBar from './shared/SearchBar/index'
@@ -269,6 +271,48 @@ function PaymentStackScreen() {
             },
           })}
         />
+
+
+        <Stack.Screen
+          name="CustomerProvinceScreen"
+          component={CustomerProvinceScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <View style={{ width: '110%' }}>
+                <SearchBar placeholder="Search address..." />
+              </View>
+            ),
+            headerTitleAlign: 'left',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+          })}
+        />
+
 
     </Stack.Navigator>
   )
@@ -655,6 +699,54 @@ function HomeStackScreen() {
           },
         })}
       />
+
+      <Stack.Screen
+        name="CustomerMapPickerScreen"
+        component={CustomerMapPickerScreen}
+                options={({ navigation }) => ({
+          headerTitle: () => (
+            <Text
+              style={{
+                fontSize: 16,
+                color: '#7e7e7e',
+                fontFamily: fonts.HelveticaNeueMedium,
+              }}
+            >
+              Edit Address
+            </Text>
+          ),
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#F4F8F7',
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+            height: 90,
+            paddingTop: 20,
+          },
+          headerShadowVisible: false,
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <View style={styles.squareIcon}>
+                <View style={styles.iconContainer}>
+                  <DynamicIcon
+                    type="Ionicons"
+                    name="arrow-back"
+                    size={20}
+                    color="#7e7e7e"
+                  /> 
+                </View>
+              </View>
+            </TouchableOpacity>
+          ),
+
+          headerLeftContainerStyle: {
+            marginLeft: 16,
+            marginTop: 10,
+          },
+        })}
+      />
+
 
     </Stack.Navigator>
   );

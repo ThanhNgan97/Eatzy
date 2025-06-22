@@ -1,53 +1,24 @@
-import { View, Text, ScrollView, StyleSheet } from "react-native";
-import fonts from "../../../constants/fonts";
+import { View, ScrollView, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import CartDeliciousItem from "./CartDeliciousItem";
-
-
-const data = [
-  {
-    name: "Melting Cheese Pizza",
-    price: "90000",
-    image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
-  },
-
-  {
-    name: "Melting Cheese Pizza",
-    price: "90000",
-    image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
-  },
-
-  {
-    name: "Melting Cheese Pizza",
-    price: "90000",
-    image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
-  },
-
-  {
-    name: "Melting Cheese Pizza",
-    price: "90000",
-    image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
-  },
-
-  {
-    name: "Melting Cheese Pizza",
-    price: "90000",
-    image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
-  },
-
-  {
-    name: "Melting Cheese Pizza",
-    price: "90000",
-    image: require("../../../assets/images/CustomerHome/Pizza/Pizza.png"),
-  },
-];
+import cartDeliciousData from "./cartDeliciousData";
 
 const CartDelicious = () => {
+  const navigation = useNavigation();
+
+  const handlePressItem = () => {
+    navigation.navigate("Home", {
+    screen: "CustomerCartDetailScreen",
+});
+
+  };
+
   return (
-    <View style={styles.container}>      
+    <View style={styles.container}>
       <View style={styles.scrollWrapper}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {data.map((item, index) => (
-            <CartDeliciousItem key={index} {...item} />
+          {cartDeliciousData.map((item, index) => (
+            <CartDeliciousItem key={index} {...item} onPress={handlePressItem} />
           ))}
         </ScrollView>
       </View>
@@ -55,21 +26,13 @@ const CartDelicious = () => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
     paddingTop: 10,
   },
-
-  title: {
-    fontSize: 20,
-    marginBottom: 12,
-    fontFamily: fonts.HelveticaNeueBold,
-  },
-
   scrollWrapper: {
-    maxHeight: 400, 
+    maxHeight: 400,
   },
 });
 

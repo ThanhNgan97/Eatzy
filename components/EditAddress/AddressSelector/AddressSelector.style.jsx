@@ -36,8 +36,19 @@ const styles = StyleSheet.create({
   },
 
    containerActive: {
-    borderColor: '#007AFF', // viền xanh khi active
+    borderColor: '#007AFF', 
   },
+
+mapWrapper: {
+  marginTop: 10,
+  height: 130,
+  borderRadius: 8,
+  overflow: 'hidden',
+  width: '100%',
+}
+
+
+
 });
 
  export default styles

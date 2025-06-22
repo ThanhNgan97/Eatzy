@@ -1,16 +1,30 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './AddressSelector.style';
 import DynamicIcon from '../../../shared/Icons/DynamicIcon';
+import Map from '../../../shared/Map/Map';
 
-const AddressSelector = ({ province, district, ward, onPress, isExpanded }) => {
+const AddressSelector = ({ province, district, ward, isExpanded }) => {
+  const navigation = useNavigation();
+
+const handlePress = () => {
+  navigation.navigate('CustomerMapPickerScreen', {
+    province,
+    district,
+    ward,
+  });
+};
+
+
   return (
     <TouchableOpacity
       style={[
         styles.container,
-        isExpanded && styles.containerActive 
+        isExpanded && styles.containerActive
       ]}
-      onPress={onPress}
+      onPress={handlePress}
+      activeOpacity={1}
     >
       <View style={styles.row}>
         <Text style={styles.label}>Tỉnh/Thành phố, Quận/Huyện, Phường/Xã</Text>
@@ -30,6 +44,11 @@ const AddressSelector = ({ province, district, ward, onPress, isExpanded }) => {
           <Text style={styles.locationText}>{district}</Text>
           <Text style={styles.locationText}>{ward}</Text>
         </View>
+
+        <View style={styles.mapWrapper}>
+          <Map mini />
+        </View>
+
       </View>
     </TouchableOpacity>
   );

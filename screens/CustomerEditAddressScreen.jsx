@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet } from 'react-native';
 import NameInput from "../components/EditAddress/NameInput/input";
 import PhoneInput from "../components/EditAddress/PhoneInput";
 import AddressSelector from "../components/EditAddress/AddressSelector/index";
-// import AddressMapSelector from "../components/EditAddress/AddressMapSelector/index"
 
 const EditAddressScreen = () => {
   return (
@@ -14,7 +13,6 @@ const EditAddressScreen = () => {
         <NameInput/>
         <PhoneInput/>
         <AddressSelector/>
-        {/* <AddressMapSelector/> */}
 
     </ScrollView>
   )
