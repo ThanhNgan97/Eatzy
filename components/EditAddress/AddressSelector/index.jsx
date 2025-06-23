@@ -36,11 +36,11 @@ const AddressSelector = ({ province, district, ward, isExpanded }) => {
     const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
 
     if (place) {
-      const houseNumber = place.name || '';                  // Số nhà
-      const street = place.street || '';                     // Đường
-      const ward = place.subregion || '';                    // Phường/Xã
-      const district = place.district || '';                 // Quận/Huyện
-      const city = place.region || place.city || '';         // Tỉnh/Thành phố
+      const houseNumber = place.name || '';               
+      const street = place.street || '';                    
+      const ward = place.subregion || '';                   
+      const district = place.district || '';                 
+      const city = place.region || place.city || '';         
 
       const fullAddress = 
         `${houseNumber ? `Số ${houseNumber}` : ''}` +
@@ -80,12 +80,22 @@ const AddressSelector = ({ province, district, ward, isExpanded }) => {
       <View style={styles.row}>
         <Text style={styles.label}>Province/City, District, Ward</Text>
         <View style={{ transform: [{ rotate: isExpanded ? '90deg' : '0deg' }] }}>
-          <DynamicIcon
-            type="MaterialIcons"
-            name="keyboard-arrow-right"
-            size={18}
-            color="#484C4D"
-          />
+          <TouchableOpacity
+          onPress={() => navigation.navigate('Payment', {
+            screen: 'CustomerProvinceScreen',
+          })}
+          style={{ padding: 5 }} 
+        >
+          <View style={{ transform: [{ rotate: isExpanded ? '90deg' : '0deg' }] }}>
+            <DynamicIcon
+              type="MaterialIcons"
+              name="keyboard-arrow-right"
+              size={18}
+              color="#484C4D"
+            />
+          </View>
+        </TouchableOpacity>
+
         </View>
       </View>
 

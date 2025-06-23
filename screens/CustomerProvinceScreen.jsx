@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-
+import LocationPickerWithSearch from "../components/CustomerProvince/LocationPicker/index" 
 
 const CustomerProvinceScreen = () => {
   return (
@@ -9,6 +9,8 @@ const CustomerProvinceScreen = () => {
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
+
+      <LocationPickerWithSearch/>
     </ScrollView>
   );
 };
