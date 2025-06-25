@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 
   greetingHeaderHello: {
-    fontSize: 12,
+    fontSize: 13,
     fontFamily: fonts.HelveticaNeueMedium,
     color: "#7e7e7e",
   },

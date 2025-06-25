@@ -22,12 +22,13 @@ import CustomerVoucherScreen from './screens/CustomerVoucherScreen';
 import CustomerPaymentScreen from "./screens/CustomerPaymentScreen";
 import CustomerPaymentMethodScreen from "./screens/CustomerPaymentMethodScreen";
 import CustomerProvinceScreen from "./screens/CustomerProvinceScreen";
-import CustomerMapPickerScreen from "./shared/Map/CustomerMapPickerScreen"
+import CustomerNotificationScreen from "./screens/CustomerNotificationScreen";
 
 import AddressBar from './shared/AddressBar/index'
 import SearchBar from './shared/SearchBar/index'
 import MyTabBars from './shared/BottomNavigation';
 import DynamicIcon from './shared/Icons/DynamicIcon';
+import CustomerMapPickerScreen from "./shared/Map/CustomerMapPickerScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -703,7 +704,7 @@ function HomeStackScreen() {
       <Stack.Screen
         name="CustomerMapPickerScreen"
         component={CustomerMapPickerScreen}
-                options={({ navigation }) => ({
+          options={({ navigation }) => ({
           headerTitle: () => (
             <Text
               style={{
@@ -747,9 +748,75 @@ function HomeStackScreen() {
         })}
       />
 
-      
 
+        <Stack.Screen
+          name="CustomerNotificationScreen"
+          component={CustomerNotificationScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Notification
+              </Text>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
 
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+
+            headerRight: () => (
+              <TouchableOpacity onPress={() => {
+                console.log("Trash icon pressed");
+              }}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Feather" 
+                      name="trash-2" 
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+            headerRightContainerStyle: {
+              marginRight: 16,
+              marginTop: 10,
+            },
+          })}
+        />
     </Stack.Navigator>
   );
 }

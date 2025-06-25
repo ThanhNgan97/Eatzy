@@ -1,17 +1,12 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import LocationPickerWithSearch from "../components/CustomerProvince/LocationPicker/index" 
+import { View, StyleSheet } from "react-native";
+import LocationPickerWithSearch from "../components/CustomerProvince/index";
 
 const CustomerProvinceScreen = () => {
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      keyboardShouldPersistTaps="handled"
-    >
-
-      <LocationPickerWithSearch/>
-    </ScrollView>
+    <View style={styles.container}>
+      {/* <LocationPickerWithSearch /> */}
+    </View>
   );
 };
 
@@ -19,9 +14,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F4F8F7",
-  },
-
-  content: {
     paddingHorizontal: 10,
     paddingVertical: 20,
   },

@@ -78,7 +78,7 @@ const AddressSelector = ({ province, district, ward, isExpanded }) => {
       activeOpacity={1}
     >
       <View style={styles.row}>
-        <Text style={styles.label}>Province/City, District, Ward</Text>
+        <Text style={styles.label}>Tên đường, Tòa nhà, Số nhà</Text>
         <View style={{ transform: [{ rotate: isExpanded ? '90deg' : '0deg' }] }}>
           <TouchableOpacity
           onPress={() => navigation.navigate('Payment', {

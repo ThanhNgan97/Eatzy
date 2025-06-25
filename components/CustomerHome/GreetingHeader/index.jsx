@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 import styles from './GreetingHeader.style';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Index = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const navigation = useNavigation();
 
   return (
     <View style={styles.greetingHeaderRow}>
@@ -16,10 +19,8 @@ const Index = () => {
         </View>
       )}
 
-      
       <View style={[styles.greetingHeaderIconRow, { flex: 1, justifyContent: "flex-end" }]}>
         {isSearching ? (
-        
           <View style={[styles.searchWrapper, { flex: 1, marginRight: 12 }]}>
             <TextInput
               style={styles.searchInput}
@@ -28,7 +29,7 @@ const Index = () => {
               value={searchText}
               onChangeText={setSearchText}
               autoFocus
-              onBlur={() => setIsSearching(false)} 
+              onBlur={() => setIsSearching(false)}
             />
           </View>
         ) : (
@@ -39,12 +40,15 @@ const Index = () => {
           </TouchableOpacity>
         )}
 
-        <View style={styles.greetingHeaderSquare}>
-          <DynamicIcon type="Feather" name="bell" size={20} color="#33363F" />
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate('Home', { screen: 'CustomerNotificationScreen' })}>
+          <View style={styles.greetingHeaderSquare}>
+            <DynamicIcon type="Feather" name="bell" size={20} color="#33363F" />
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
+
 
 export default Index;
