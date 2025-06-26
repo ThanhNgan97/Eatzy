@@ -1,10 +1,9 @@
-// LocationPicker.jsx
+// File: LocationPicker.js
 import { useState } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
-  FlatList,
   SafeAreaView,
 } from "react-native";
 import ProvinceList from "./Province/ProvinceList";
@@ -47,97 +46,122 @@ const LocationPicker = () => {
     setSelectedWard(null);
   };
 
-  const renderHeader = () => (
-    <View style={styles.selectedHeaderContainer}>
-      <View style={styles.selectedHeaderRow}>
-        <Text style={styles.sectionHeaderText}>Khu vực \u0111\u01b0\u1ee3c ch\u1ecdn</Text>
-        <TouchableOpacity onPress={handleReset}>
-          <Text style={styles.resetText}>Thi\u1ebft l\u1eadp l\u1ea1i</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.selectedItemsFlow}>
-        {selectedProvince && (
-          <View style={styles.selectedItemContainer}>
-            <View style={styles.radioOuterSelected}>
-              <View style={styles.radioInnerSelected} />
-            </View>
-            <Text style={styles.selectedText}>{selectedProvince.name}</Text>
-          </View>
-        )}
-
-        {selectedDistrict && (
-          <>
-            <View style={styles.verticalLine} />
-            <View style={styles.selectedItemContainer}>
-              <View style={styles.radioOuter} />
-              <Text style={styles.selectedText}>{selectedDistrict.name}</Text>
-            </View>
-          </>
-        )}
-
-        {selectedWard && (
-          <>
-            <View style={styles.verticalLine} />
-            <View style={styles.selectedItemContainer}>
-              <View style={styles.radioOuter} />
-              <Text style={styles.selectedText}>{selectedWard.name}</Text>
-            </View>
-          </>
-        )}
-      </View>
-
-      <Text style={styles.sectionTitle}>
-        {step === "province"
-          ? "Tỉnh/Thành phố"
-          : step === "district"
-          ? "Quận/Huyện"
-          : "Phường/Xã"}
-      </Text>
+ const renderHeader = () => (
+  <View style={styles.selectedHeaderContainer}>
+    <View style={styles.selectedHeaderRow}>
+      <Text style={styles.sectionHeaderText}>Khu vực được chọn</Text>
+      <TouchableOpacity onPress={handleReset}>
+        <Text style={styles.resetText}>Thiết lập lại</Text>
+      </TouchableOpacity>
     </View>
-  );
+
+    <View style={styles.selectedItemsFlow}>
+      {selectedProvince && (
+        <View style={styles.selectedItemContainer}>
+          <View
+            style={
+              step === "province"
+                ? styles.radioOuterSelected
+                : styles.radioOuter
+            }
+          >
+            {step === "province" && <View style={styles.radioInnerSelected} />}
+          </View>
+          <Text
+            style={[
+              styles.selectedText,
+              step === "province" && styles.selectedTextActive,
+            ]}
+          >
+            {selectedProvince.name}
+          </Text>
+        </View>
+      )}
+
+      {selectedDistrict && (
+        <>
+          <View style={styles.verticalLine} />
+          <View style={styles.selectedItemContainer}>
+            <View
+              style={
+                step === "district"
+                  ? styles.radioOuterSelected
+                  : styles.radioOuter
+              }
+            >
+              {step === "district" && <View style={styles.radioInnerSelected} />}
+            </View>
+            <Text
+              style={[
+                styles.selectedText,
+                step === "district" && styles.selectedTextActive,
+              ]}
+            >
+              {selectedDistrict.name}
+            </Text>
+          </View>
+        </>
+      )}
+
+      {selectedWard && (
+        <>
+          <View style={styles.verticalLine} />
+          <View style={styles.selectedItemContainer}>
+            <View
+              style={
+                step === "ward" ? styles.radioOuterSelected : styles.radioOuter
+              }
+            >
+              {step === "ward" && <View style={styles.radioInnerSelected} />}
+            </View>
+            <Text
+              style={[
+                styles.selectedText,
+                step === "ward" && styles.selectedTextActive,
+              ]}
+            >
+              {selectedWard.name}
+            </Text>
+          </View>
+        </>
+      )}
+    </View>
+
+    <Text style={styles.sectionTitle}>
+      {step === "province"
+        ? "Tỉnh/Thành phố"
+        : step === "district"
+        ? "Quận/Huyện"
+        : "Phường/Xã"}
+    </Text>
+  </View>
+);
+
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+      {renderHeader()}
+
       {step === "province" && (
-        <FlatList
-          ListHeaderComponent={renderHeader}
-          data={[]}
-          renderItem={null}
-          ListFooterComponent={
-            <ProvinceList
-              selectedProvinceId={selectedProvince?.id}
-              onSelect={handleProvinceSelect}
-            />
-          }
+        <ProvinceList
+          selectedProvinceId={selectedProvince?.id}
+          onSelect={handleProvinceSelect}
         />
       )}
+
       {step === "district" && selectedProvince && (
-        <FlatList
-          ListHeaderComponent={renderHeader}
-          data={[]}
-          renderItem={null}
-          ListFooterComponent={
-            <DistrictList
-              provinceId={selectedProvince.id}
-              selectedDistrictId={selectedDistrict?.id}
-              onSelect={handleDistrictSelect}
-            />
-          }
+        <DistrictList
+          provinceId={selectedProvince.name}
+          selectedDistrictId={selectedDistrict?.id}
+          onSelect={handleDistrictSelect}
         />
       )}
+
       {step === "ward" && selectedDistrict && (
-        <FlatList
-          ListHeaderComponent={renderHeader}
-          data={[]}
-          renderItem={null}
-          ListFooterComponent={
-            <WardList
-              districtId={selectedDistrict.id}
-              selectedWardId={selectedWard?.id}
-              onSelect={handleWardSelect}
-            />
-          }
+        <WardList
+          districtId={selectedDistrict.name}
+          selectedWardId={selectedWard?.id}
+          onSelect={handleWardSelect}
         />
       )}
     </SafeAreaView>

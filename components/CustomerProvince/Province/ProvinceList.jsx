@@ -6,21 +6,24 @@ const ProvinceList = ({ onSelect, selectedProvinceId }) => {
   return (
     <FlatList
       data={provinces}
-      keyExtractor={(item) => item.id}
-      contentContainerStyle={styles.listContainer}
+      keyExtractor={(item) => item}
       renderItem={({ item }) => (
         <TouchableOpacity
-          onPress={() => onSelect(item)}
+          onPress={() => onSelect({ id: item, name: item })}
           style={[
             styles.item,
-            selectedProvinceId === item.id && styles.selectedItem,
+            selectedProvinceId === item && styles.selectedItem
           ]}
         >
-          <Text style={styles.itemText}>{item.name}</Text>
+          <View style={styles.radioOuter}>
+            {selectedProvinceId === item && <View style={styles.radioInner} />}
+          </View>
+          <Text style={styles.itemText}>{item}</Text>
         </TouchableOpacity>
       )}
     />
   );
 };
+
 
 export default ProvinceList;

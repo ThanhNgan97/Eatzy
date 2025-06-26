@@ -1,5 +1,4 @@
 const wardsData = {
-  // ——— Cần Thơ (quận) ———
   "Quận Ninh Kiều": [
     "Phường Ninh Kiều",
     "Phường Cái Khế",
@@ -32,7 +31,7 @@ const wardsData = {
     "Phường Thường Thạnh"
   ],
 
-  // ——— An Giang (ví dụ Châu Thành, Long Xuyên) ———
+ 
   "Thành phố Long Xuyên": [
     "Phường Mỹ Bình",
     "Phường Mỹ Long",
@@ -64,7 +63,7 @@ const wardsData = {
     "Xã Vĩnh Thành"
   ],
 
-  // ——— Phần ví dụ placeholder cho tỉnh khác ———
+
   "Thành phố Cà Mau": [
     "Phường 1",
     "Phường 2",

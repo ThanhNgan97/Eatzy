@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';
 import styles from './AddressSelector.style';
-import DynamicIcon from '../../../shared/Icons/DynamicIcon';
 import Map from '../../../shared/Map/Map';
 
 const AddressSelector = ({ province, district, ward, isExpanded }) => {
@@ -21,102 +20,79 @@ const AddressSelector = ({ province, district, ward, isExpanded }) => {
 
       const location = await Location.getCurrentPositionAsync({});
       const { latitude, longitude } = location.coords;
-      setCoords({ latitude, longitude });
-
-      fetchAddressFromCoords(latitude, longitude);
+      const position = { latitude, longitude };
+      setCoords(position);
+      fetchAddressFromCoords(position);
     } catch (error) {
       console.log('Lỗi vị trí:', error);
       setAddressText('Không thể lấy vị trí');
     }
   };
 
+  const fetchAddressFromCoords = async ({ latitude, longitude }) => {
+    try {
+      const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
 
-  const fetchAddressFromCoords = async (latitude, longitude) => {
-  try {
-    const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
+      if (place) {
+        const fullAddress =
+          `${place.name ? `Số ${place.name}` : ''}` +
+          `${place.street ? `, Đường ${place.street}` : ''}` +
+          `${place.subregion ? `, ${place.subregion}` : ''}` +
+          `${place.district ? `, ${place.district}` : ''}` +
+          `${place.region || place.city ? `, ${place.region || place.city}` : ''}`;
 
-    if (place) {
-      const houseNumber = place.name || '';               
-      const street = place.street || '';                    
-      const ward = place.subregion || '';                   
-      const district = place.district || '';                 
-      const city = place.region || place.city || '';         
-
-      const fullAddress = 
-        `${houseNumber ? `Số ${houseNumber}` : ''}` +
-        `${street ? `, Đường ${street}` : ''}` +
-        `${ward ? `, ${ward}` : ''}` +
-        `${district ? `, ${district}` : ''}` +
-        `${city ? `, ${city}` : ''}`;
-
-      setAddressText(fullAddress.trim());
+        setAddressText(fullAddress.trim());
+      }
+    } catch (err) {
+      console.log('Lỗi khi lấy địa chỉ:', err);
+      setAddressText('Không thể lấy địa chỉ');
     }
-  } catch (err) {
-    console.log('Lỗi khi lấy địa chỉ:', err);
-    setAddressText('Không thể lấy địa chỉ');
-  }
-};
-
+  };
 
   useEffect(() => {
     getCurrentLocation();
   }, []);
 
-  const handlePress = () => {
-    navigation.navigate('CustomerMapPickerScreen', {
-      province,
-      district,
-      ward,
-      coords,
+  const handleMapPress = () => {
+    if (!coords) {
+      console.warn('Chưa có vị trí');
+      return;
+    }
+
+    navigation.navigate('Home', {
+      screen: 'CustomerMapPickerScreen', 
+      params: {
+        coords,
+        province,
+        district,
+        ward,
+      },
     });
   };
 
   return (
-    <TouchableOpacity
-      style={[styles.container, isExpanded && styles.containerActive]}
-      onPress={handlePress}
-      activeOpacity={1}
-    >
+    <View style={[styles.container, isExpanded && styles.containerActive]}>
       <View style={styles.row}>
-        <Text style={styles.label}>Tên đường, Tòa nhà, Số nhà</Text>
-        <View style={{ transform: [{ rotate: isExpanded ? '90deg' : '0deg' }] }}>
-          <TouchableOpacity
-          onPress={() => navigation.navigate('Payment', {
-            screen: 'CustomerProvinceScreen',
-          })}
-          style={{ padding: 5 }} 
-        >
-          <View style={{ transform: [{ rotate: isExpanded ? '90deg' : '0deg' }] }}>
-            <DynamicIcon
-              type="MaterialIcons"
-              name="keyboard-arrow-right"
-              size={18}
-              color="#484C4D"
-            />
+        <Text style={styles.label}>Street Name, Building, House Number</Text>
+      </View>
+
+      <TouchableOpacity onPress={handleMapPress} activeOpacity={0.9}>
+        <View style={styles.content}>
+          <View style={styles.textBlock}>
+            <Text style={styles.locationText}>{province}</Text>
+            <Text style={styles.locationText}>{district}</Text>
+            <Text style={styles.locationText}>{ward}</Text>
+            <Text style={[styles.locationText, styles.addressLine]}>
+              📍{addressText}
+            </Text>
           </View>
-        </TouchableOpacity>
 
+          <View style={styles.mapWrapper}>
+            <Map mini />
+          </View>
         </View>
-      </View>
-
-      <View style={styles.content}>
-        <View style={styles.textBlock}>
-          <Text style={styles.locationText}>{province}</Text>
-          <Text style={styles.locationText}>{district}</Text>
-          <Text style={styles.locationText}>{ward}</Text>
-          <Text style={[styles.locationText, styles.addressLine]}>
-            📍{addressText}
-          </Text>
-
-        </View>
-
-        <View style={styles.mapWrapper}>
-          <Map mini />
-        </View>
-      </View>
-
-
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 

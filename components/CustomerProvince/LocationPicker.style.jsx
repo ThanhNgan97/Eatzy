@@ -26,101 +26,114 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
 
+
+
   selectedHeaderContainer: {
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 12,
-    backgroundColor: "#f6f7f8",
+    paddingVertical: 16,
+    paddingHorizontal: 16,
   },
 
   selectedHeaderRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 12,
+    marginBottom: 8,
   },
 
   sectionHeaderText: {
-    fontSize: 14,
-    fontFamily: fonts.HelveticaNeueBold,
-    color: "#999",
+    fontSize: 12,
+    fontFamily:fonts.HelveticaNeueBold,
+    color: "#aaa",
   },
 
+
   resetText: {
-    fontSize: 14,
-    color: "#00C851",
-    fontFamily: fonts.HelveticaNeueMedium,
+    fontSize: 12,
+    color: "#68BD6C",
+    fontFamily:fonts.HelveticaNeueBold
+  },
+
+  selectedItemsFlow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
   },
 
   selectedItemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 4,
-  },
-
-  radioOuter: {
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    borderWidth: 1.5,
-    borderColor: "#ccc",
-    marginRight: 8,
+    backgroundColor: "#fff",
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+    marginVertical: 4,
   },
 
   radioOuterSelected: {
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    borderWidth: 1.5,
-    borderColor: "#00C851",
-    marginRight: 8,
-    justifyContent: "center",
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    borderWidth: 2,
+    borderColor: "#68BD6C",
     alignItems: "center",
+    justifyContent: "center",
+    marginRight: 8,
   },
 
   radioInnerSelected: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: "#00C851",
+    backgroundColor: "#68BD6C",
   },
-
+  radioOuter: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    borderWidth: 1.5,
+    borderColor: "#aaa",
+    marginRight: 8,
+  },
+  verticalLine: {
+    width: 1,
+    height: 24,
+    backgroundColor: "#ccc",
+    marginHorizontal: 8,
+  },
   selectedText: {
     fontSize: 14,
-    fontFamily: fonts.HelveticaNeueMedium,
     color: "#333",
   },
-
+  
   sectionTitle: {
+    marginTop: 12,
     fontSize: 14,
-    fontFamily: fonts.HelveticaNeueBold,
-    marginTop: 20,
-    marginBottom: 8,
-    marginHorizontal: 20,
-    color: "#888",
+    fontFamily:fonts.HelveticaNeueBold,
+    color: "#aaa",
+  },
+
+  listContainer: {
+    paddingHorizontal: 16,
+    backgroundColor: "#fff",
   },
 
   item: {
-    paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
     backgroundColor: "#fff",
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
+    flexDirection: "row",
+    alignItems: "center",
   },
 
   selectedItem: {
-    backgroundColor: "#e6f8ef",
+    backgroundColor: "#f5fff5", 
   },
 
   itemText: {
     fontSize: 16,
     color: "#333",
-    fontFamily: fonts.HelveticaNeueMedium,
-  },
-
-  selectedItemText: {
-    color: "#00C851",
-    fontFamily: fonts.HelveticaNeueBold,
   },
 });
 

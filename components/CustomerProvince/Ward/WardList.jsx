@@ -4,11 +4,18 @@ import styles from "../LocationPicker.style";
 
 
 const WardList = ({ districtId, onSelect, selectedWardId }) => {
-  const filtered = wards.filter(w => w.districtId === districtId);
+  const wardsNames = wards[districtId] || [];
+
+  const wardsArray = wardsNames.map((name, index) => ({
+    id: `${districtId}-${index}`, // tạo ID duy nhất
+    name,
+  }));
+
+  console.log(wardsNames)
 
   return (
     <FlatList
-      data={filtered}
+      data={wardsArray}
       keyExtractor={(item) => item.id}
       contentContainerStyle={styles.listContainer}
       renderItem={({ item }) => (

@@ -62,7 +62,7 @@ function PaymentStackScreen() {
   return (
     <Stack.Navigator>
        <Stack.Screen
-          name="Payment"
+          name="CustomerPaymentScreen"
           component={CustomerPaymentScreen}
           options={({ navigation }) => ({
           header: () => (

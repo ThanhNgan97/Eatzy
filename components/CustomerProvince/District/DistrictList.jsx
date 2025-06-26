@@ -4,16 +4,21 @@ import styles from "../LocationPicker.style";
 
 
 const DistrictList = ({ provinceId, onSelect, selectedDistrictId }) => {
-  const filtered = districts.filter(d => d.provinceId === provinceId);
+ const districtNames = districts[provinceId] || [];
+
+  const districtArray = districtNames.map((name, index) => ({
+    id: `${provinceId}-${index}`, 
+    name,
+  }));
 
   return (
     <FlatList
-      data={filtered}
+      data={districtArray}
       keyExtractor={(item) => item.id}
       contentContainerStyle={styles.listContainer}
       renderItem={({ item }) => (
         <TouchableOpacity
-          onPress={() => onSelect(item)}
+          onPress={() => onSelect({ id: item.name, name: item.name })}
           style={[
             styles.item,
             selectedDistrictId === item.id && styles.selectedItem,

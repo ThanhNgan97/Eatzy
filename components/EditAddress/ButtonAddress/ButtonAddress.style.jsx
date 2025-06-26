@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 20,
   },
+
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -44,6 +45,56 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 14,
     fontFamily:fonts.HelveticaNeueBold
+  },
+
+    alertContainer: {
+    backgroundColor: "#fff",
+    borderRadius: 20,
+  },
+
+  alertTitle: {
+    color: "#68BD6C",
+    fontSize: 16,
+    fontFamily:fonts.HelveticaNeueBold
+  },
+
+  alertMessage: {
+    color: "#7e7e7e",
+    fontSize: 14,
+    fontFamily:fonts.HelveticaNeueMedium
+  },
+
+  confirmButton: {
+    backgroundColor: "#68BD6C",
+    paddingVertical: 10,
+    borderRadius: 20,
+    fontFamily:fonts.HelveticaNeueBold
+
+  },
+
+  cancelButton: {
+    backgroundColor: "#fff",
+    paddingVertical: 5,
+    borderRadius: 20,
+    fontFamily:fonts.HelveticaNeueBold,
+    justifyContent:'center',
+    alignItems:'center',
+    borderWidth:1,
+    borderColor:'#68BD6C',
+
+  },
+
+  confirmText: {
+    color: "#fff",
+    fontFamily:fonts.HelveticaNeueBold,
+    textAlign: "center",
+  },
+
+  cancelText: {
+    color:'#68BD6C',
+    textAlign: "center",
+    fontFamily:fonts.HelveticaNeueBold
+
   },
 
 });
