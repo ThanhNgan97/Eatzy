@@ -1,4 +1,5 @@
 import { ScrollView, StyleSheet } from "react-native";
+import ShopHome from "../../components/Shop/ShopHome/ShopHome.jsx";
 
 const ShopHomeScreen = () => {
   return (
@@ -7,6 +8,7 @@ const ShopHomeScreen = () => {
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
+      <ShopHome />
     </ScrollView>
   );
 };
@@ -18,12 +20,7 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    paddingHorizontal: 10,
-    paddingVertical: 20,
-    flexGrow:1,
-    justifyContent:'center',
-    alignItems:'center'
-    
+    flexGrow: 1,
   },
 });
 

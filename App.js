@@ -91,7 +91,9 @@ const createHeaderOptions = (title, navigationTarget = 'Home') => ({ navigation 
 });
 
 //api placeholder
-const role = 'user';
+// const role = 'user';
+const role = 'shop';
+
 
 const CustomerTab = (getHeaderOptions) => () => (
   <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
