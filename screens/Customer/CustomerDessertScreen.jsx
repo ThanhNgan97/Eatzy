@@ -1,17 +1,15 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import AddressScreen from "../components/CustomerSelectAddress/AddressScreen/index";
-import AddNewAddressButton from "../components/CustomerSelectAddress/AddNewAddressButton/index"
+import Dessert from "../../components/CustomerDessert/Dessert";
 
-const CustomerSelectAddressScreen = () => {
+const CustomerDessertScreen = () => {
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
-      <AddressScreen />
-      <AddNewAddressButton/>
+      <Dessert />
     </ScrollView>
   );
 };
@@ -28,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomerSelectAddressScreen;
+export default CustomerDessertScreen;

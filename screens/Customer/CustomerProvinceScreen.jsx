@@ -1,11 +1,11 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import LocationPicker from "../components/CustomerProvince";
+import LocationPicker from "../../components/CustomerProvince";
 
 const CustomerProvinceScreen = () => {
   return (
     <View style={styles.container}>
-        <LocationPicker/>
+      <LocationPicker />
     </View>
   );
 };

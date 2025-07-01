@@ -1,17 +1,15 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import NotificationList from "../components/CustomeNofication/NotificationList";
+import FoodList from "../../components/CustomerFoodList/FoodList";
 
-
-const CustomerNotificationScreen = () => {
+const CustomerCategoryList = () => {
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
-        <NotificationList/>
-
+      <FoodList />
     </ScrollView>
   );
 };
@@ -28,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomerNotificationScreen;
+export default CustomerCategoryList;

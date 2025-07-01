@@ -1,11 +1,16 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, TouchableOpacity, Text } from "react-native";
-import VoucherFee from "../components/CustomerVoucher/index";
-import fonts from "../constants/fonts";
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+import VoucherFee from "../../components/CustomerVoucher/index";
+import fonts from "../../constants/fonts";
 import { useNavigation } from "@react-navigation/native";
 
 const CustomerVoucherScreen = () => {
-
   const navigation = useNavigation();
 
   const handleConfirm = () => {
@@ -43,7 +48,7 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 10,
     paddingVertical: 20,
-    paddingBottom: 80, 
+    paddingBottom: 80,
   },
 
   fixedButtonContainer: {
@@ -63,11 +68,11 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     alignItems: "center",
   },
-  
+
   confirmButtonText: {
     color: "#fff",
     fontSize: 16,
-    fontFamily:fonts.HelveticaNeueBold
+    fontFamily: fonts.HelveticaNeueBold,
   },
 });
 

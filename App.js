@@ -9,20 +9,20 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 
-import CustomerHomeScreen from './screens/CustomerHomeScreen';
-import CustomerCartDetailScreen from './screens/CustomerCartDetailScreen';
-import CustomerCartScreen from './screens/CustomerCartScreen';
-import CustomerSelectAddressScreen from './screens/CustomerSelectAddressScreen';
-import CustomerEditAddressScreen from "./screens/CustomerEditAddressScreen";
-import CustomerFoodListScreen from './screens/CustomerFoodListScreen';
-import CustomerFastFoodScreen from './screens/CustomerFastFoodScreen';
-import CustomerDrinksScreen from './screens/CustomerDrinksScreen';
-import CustomerDessertScreen from './screens/CustomerDessertScreen';
-import CustomerVoucherScreen from './screens/CustomerVoucherScreen';
-import CustomerPaymentScreen from "./screens/CustomerPaymentScreen";
-import CustomerPaymentMethodScreen from "./screens/CustomerPaymentMethodScreen";
-import CustomerProvinceScreen from "./screens/CustomerProvinceScreen";
-import CustomerNotificationScreen from "./screens/CustomerNotificationScreen";
+import CustomerHomeScreen from './screens/Customer/CustomerHomeScreen';
+import CustomerCartDetailScreen from './screens/Customer/CustomerCartDetailScreen';
+import CustomerCartScreen from './screens/Customer/CustomerCartScreen';
+import CustomerSelectAddressScreen from './screens/Customer/CustomerSelectAddressScreen';
+import CustomerEditAddressScreen from "./screens/Customer/CustomerEditAddressScreen";
+import CustomerFoodListScreen from './screens/Customer/CustomerFoodListScreen';
+import CustomerFastFoodScreen from './screens/Customer/CustomerFastFoodScreen';
+import CustomerDrinksScreen from './screens/Customer/CustomerDrinksScreen';
+import CustomerDessertScreen from './screens/Customer/CustomerDessertScreen';
+import CustomerVoucherScreen from './screens/Customer/CustomerVoucherScreen';
+import CustomerPaymentScreen from "./screens/Customer/CustomerPaymentScreen";
+import CustomerPaymentMethodScreen from "./screens/Customer/CustomerPaymentMethodScreen";
+import CustomerProvinceScreen from "./screens/Customer/CustomerProvinceScreen";
+import CustomerNotificationScreen from "./screens/Customer/CustomerNotificationScreen";
 
 import AddressBar from './shared/AddressBar/index'
 import SearchBar from './shared/SearchBar/index'
@@ -32,6 +32,58 @@ import CustomerMapPickerScreen from "./shared/Map/CustomerMapPickerScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
+const createHeaderOptions = (title, navigationTarget = 'Home') => ({ navigation }) => ({
+  headerShown: true,
+  headerTitle: () => (
+    <View style={{ paddingHorizontal: 16 }}>
+      <Text
+        style={{
+          color: '#7e7e7e',
+          fontSize: 18,
+          fontFamily: fonts.HelveticaNeueMedium,
+        }}
+      >
+        {title}
+      </Text>
+    </View>
+  ),
+  headerTitleAlign: 'center',
+  headerStyle: {
+    backgroundColor: '#F4F8F7',
+    elevation: 0, 
+    shadowOpacity: 0, 
+    shadowColor: 'transparent',
+    borderBottomWidth: 0,
+    borderBottomColor: 'transparent',
+    height: 90,
+    paddingTop: 20,
+  },
+  headerShadowVisible: false,
+  headerLeftContainerStyle: {
+  paddingLeft: 0, 
+  paddingTop: 4,
+},
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => navigationTarget === 'goBack' 
+        ? navigation.goBack() 
+        : navigation.navigate(navigationTarget)}
+      style={{ marginLeft: 16 }}
+    >
+      <View style={styles.squareIcon}>
+        <View style={styles.iconContainer}>
+          <DynamicIcon
+            type="MaterialIcons"
+            name="keyboard-arrow-left"
+            size={24}
+            color="#7e7e7e"
+          />
+        </View>
+      </View>
+    </TouchableOpacity>
+  ),
+});
 
 
 function getTabBarVisibility(route) {

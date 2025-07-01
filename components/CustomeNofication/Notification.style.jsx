@@ -44,22 +44,21 @@ export default StyleSheet.create({
     color: "#222222",
     flex: 1,
     flexWrap: "wrap",
-    fontFamily:fonts.HelveticaNeueBold
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   time: {
     fontSize: 12,
     color: "#999",
     marginLeft: 6,
-    fontFamily:fonts.HelveticaNeueBold
-
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   description: {
     color: "#7e7e7e",
     fontSize: 12,
     marginTop: 4,
-    fontFamily:fonts.HelveticaNeueMedium
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 
   unreadDot: {
@@ -76,5 +75,4 @@ export default StyleSheet.create({
     borderRadius: 6,
     marginLeft: 8,
   },
-
 });

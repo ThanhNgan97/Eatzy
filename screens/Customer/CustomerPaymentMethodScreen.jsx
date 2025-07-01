@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import PaymentMethodItem from "../components/CustomerPaymentMethods/PaymentMethod/PaymentMethodItem";
-import AddMethodList from "../components/CustomerPaymentMethods/AddPaymentMethod/AddMethodList";
+import PaymentMethodItem from "../../components/CustomerPaymentMethods/PaymentMethod/PaymentMethodItem";
+import AddMethodList from "../../components/CustomerPaymentMethods/AddPaymentMethod/AddMethodList";
 
 const CustomerPaymentMethodScreen = () => {
   const [selectedMethod, setSelectedMethod] = useState(null);

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 
   value: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#222222',
     marginVertical: 2,
     fontFamily:fonts.HelveticaNeueMedium

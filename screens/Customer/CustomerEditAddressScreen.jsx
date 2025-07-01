@@ -1,21 +1,21 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from "react";
 import {
   ScrollView,
   StyleSheet,
   View,
   SafeAreaView,
   TouchableOpacity,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import NameInput from "../components/EditAddress/NameInput/input";
-import PhoneInput from "../components/EditAddress/PhoneInput";
-import AddressSelector from "../components/EditAddress/AddressSelector/index";
-import ButtonAddress from '../components/EditAddress/ButtonAddress';
-import AddressDisplay from '../components/EditAddress/AddressDisplay';
-import DynamicIcon from '../shared/Icons/DynamicIcon';
-import CustomAlert from '../shared/CustomAlert/CustomAlert';
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import NameInput from "../../components/EditAddress/NameInput/input";
+import PhoneInput from "../../components/EditAddress/PhoneInput";
+import AddressSelector from "../../components/EditAddress/AddressSelector/index";
+import ButtonAddress from "../../components/EditAddress/ButtonAddress";
+import AddressDisplay from "../../components/EditAddress/AddressDisplay";
+import DynamicIcon from "../../shared/Icons/DynamicIcon";
+import CustomAlert from "../../shared/CustomAlert/CustomAlert";
 
-import fonts from '../constants/fonts';
+import fonts from "../../constants/fonts";
 
 const EditAddressScreen = () => {
   const navigation = useNavigation();
@@ -66,24 +66,22 @@ const EditAddressScreen = () => {
         <ButtonAddress />
       </View>
 
-        <CustomAlert
-          visible={showAlert}
-          title="Are you sure you want to exit?"
-          message="Changes have not been saved. Are you sure you want to discard them?"
-          onClose={() => setShowAlert(false)}
-          onConfirm={handleConfirmExit}
-          confirmText="Discard"
-          cancelText="Cancel"
-          containerStyle={styles.alertContainer}
-          titleStyle={styles.alertTitle}
-          messageStyle={styles.alertMessage}
-          confirmButtonStyle={styles.alertConfirmButton}
-          cancelButtonStyle={styles.alertCancelButton}
-          confirmTextStyle={styles.alertConfirmText}
-          cancelTextStyle={styles.alertCancelText}
-        />
-
-
+      <CustomAlert
+        visible={showAlert}
+        title="Are you sure you want to exit?"
+        message="Changes have not been saved. Are you sure you want to discard them?"
+        onClose={() => setShowAlert(false)}
+        onConfirm={handleConfirmExit}
+        confirmText="Discard"
+        cancelText="Cancel"
+        containerStyle={styles.alertContainer}
+        titleStyle={styles.alertTitle}
+        messageStyle={styles.alertMessage}
+        confirmButtonStyle={styles.alertConfirmButton}
+        cancelButtonStyle={styles.alertCancelButton}
+        confirmTextStyle={styles.alertConfirmText}
+        cancelTextStyle={styles.alertCancelText}
+      />
     </SafeAreaView>
   );
 };
@@ -102,25 +100,25 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   fixedButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
-    width: '100%',
+    width: "100%",
     paddingVertical: 10,
     paddingHorizontal: 10,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   squareIcon: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   iconContainer: {
     borderRadius: 100,
     padding: 4,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     width: 40,
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   alertContainer: {
@@ -131,43 +129,43 @@ const styles = StyleSheet.create({
   alertTitle: {
     color: "#68BD6C",
     fontSize: 16,
-    fontFamily:fonts.HelveticaNeueBold
+    fontFamily: fonts.HelveticaNeueBold,
   },
-  
+
   alertMessage: {
     color: "#7e7e7e",
     fontSize: 14,
-    fontFamily:fonts.HelveticaNeueMedium
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 
   alertConfirmButton: {
     backgroundColor: "#68BD6C",
     paddingVertical: 5,
     borderRadius: 20,
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   alertCancelButton: {
     paddingVertical: 8,
     borderRadius: 20,
-    borderWidth:1,
-    borderColor:'#68BD6C',
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor:'#fff'
+    borderWidth: 1,
+    borderColor: "#68BD6C",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
 
   alertConfirmText: {
     color: "#fff",
-    fontFamily:fonts.HelveticaNeueBold,
+    fontFamily: fonts.HelveticaNeueBold,
     textAlign: "center",
   },
 
   alertCancelText: {
     color: "#68BD6C",
     textAlign: "center",
-    fontFamily:fonts.HelveticaNeueBold
+    fontFamily: fonts.HelveticaNeueBold,
   },
 });
 

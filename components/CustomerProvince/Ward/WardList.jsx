@@ -2,7 +2,6 @@ import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import wards from "./wardsData";
 import styles from "../LocationPicker.style";
 
-
 const WardList = ({ districtId, onSelect, selectedWardId }) => {
   const wardsNames = wards[districtId] || [];
 
@@ -10,8 +9,6 @@ const WardList = ({ districtId, onSelect, selectedWardId }) => {
     id: `${districtId}-${index}`, // tạo ID duy nhất
     name,
   }));
-
-  console.log(wardsNames)
 
   return (
     <FlatList

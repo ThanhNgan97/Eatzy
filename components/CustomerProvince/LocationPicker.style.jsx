@@ -53,11 +53,6 @@ const styles = StyleSheet.create({
     fontFamily:fonts.HelveticaNeueBold
   },
 
-  selectedItemsFlow: {
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "wrap",
-  },
 
   selectedItemContainer: {
     flexDirection: "row",
@@ -94,12 +89,7 @@ const styles = StyleSheet.create({
     borderColor: "#aaa",
     marginRight: 8,
   },
-  verticalLine: {
-    width: 1,
-    height: 24,
-    backgroundColor: "#ccc",
-    marginHorizontal: 8,
-  },
+ 
   selectedText: {
     fontSize: 14,
     color: "#333",
@@ -135,6 +125,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
   },
+
+  radioInnerGray: {
+  width: 10,
+  height: 10,
+  borderRadius: 5,
+  backgroundColor: '#ccc', // xám
+},
 });
 
 export default styles

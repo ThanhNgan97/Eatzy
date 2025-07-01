@@ -1,15 +1,15 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import Dessert from "../components/CustomerDessert/Dessert";
+import Drink from "../../components/CustomerDrink/Drink";
 
-const CustomerDessertScreen = () => {
+const CustomerDrinksScreen = () => {
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
-        <Dessert/>
+      <Drink />
     </ScrollView>
   );
 };
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomerDessertScreen;
+export default CustomerDrinksScreen;

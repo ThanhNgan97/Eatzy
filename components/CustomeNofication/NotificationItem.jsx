@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import DynamicIcon from "../../shared/Icons/DynamicIcon";
 import styles from "./Notification.style";
+import DynamicIcon from "../../shared/Icons/DynamicIcon";
 
 const NotificationItem = ({
   icon,
@@ -11,7 +11,7 @@ const NotificationItem = ({
   description,
   time,
   unread,
-  thumbnail
+  thumbnail,
 }) => {
   return (
     <View style={styles.card}>
@@ -22,11 +22,15 @@ const NotificationItem = ({
 
         <View style={styles.content}>
           <View style={styles.titleRow}>
-            <Text style={styles.title} numberOfLines={1}>{title}</Text>
+            <Text style={styles.title} numberOfLines={1}>
+              {title}
+            </Text>
             <Text style={styles.time}>{time}</Text>
             {unread && <View style={styles.unreadDot} />}
           </View>
-          <Text style={styles.description} numberOfLines={2}>{description}</Text>
+          <Text style={styles.description} numberOfLines={2}>
+            {description}
+          </Text>
         </View>
 
         {thumbnail && (
@@ -36,6 +40,5 @@ const NotificationItem = ({
     </View>
   );
 };
-
 
 export default NotificationItem;
