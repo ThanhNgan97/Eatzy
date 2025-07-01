@@ -12,7 +12,7 @@ const CartDeliciousItem = ({ name, price, image }) => {
   };
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("Home", { screen: "CustomerCartDetailScreen" })}>
+    <TouchableOpacity onPress={() => navigation.navigate("CustomerCartDetailScreen")}>
       <View style={styles.card}>
         <Image source={image} style={styles.image} />
         <View style={styles.content}>

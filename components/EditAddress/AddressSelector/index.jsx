@@ -59,15 +59,15 @@ const AddressSelector = ({ province, district, ward, isExpanded }) => {
       return;
     }
 
-    navigation.navigate('Home', {
-      screen: 'CustomerMapPickerScreen', 
-      params: {
+    navigation.navigate(
+      'CustomerMapPickerScreen', 
+       {
         coords,
         province,
         district,
         ward,
       },
-    });
+    );
   };
 
   return (

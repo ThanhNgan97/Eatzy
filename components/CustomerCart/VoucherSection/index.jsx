@@ -7,10 +7,7 @@ const VoucherSection = () => {
   const navigation = useNavigation(); 
 
 const handleApplyPress = () => {
-  navigation.navigate('Home', {
-    screen: 'CustomerVoucherScreen',
-  });
-};
+  navigation.navigate('CustomerVoucherScreen')};
 
 
   return (

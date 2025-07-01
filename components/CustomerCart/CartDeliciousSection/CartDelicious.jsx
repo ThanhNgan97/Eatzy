@@ -1,5 +1,4 @@
 import { View, ScrollView, StyleSheet } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 import CartDeliciousItem from "./CartDeliciousItem";
 import cartDeliciousData from "./cartDeliciousData";
 

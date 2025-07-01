@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import DynamicIcon from '../../../shared/Icons/DynamicIcon';
+import DynamicIcon from '../../../../shared/Icons/DynamicIcon';
 import styles from './OrderCard.style';
 
 const OrderCard = ({ name, code, items, type, avatarUrl }) => {
@@ -17,7 +17,7 @@ const OrderCard = ({ name, code, items, type, avatarUrl }) => {
     <TouchableOpacity style={styles.card} onPress={handlePress}>
       <View style={styles.left}>
         <Image
-          source={avatarUrl || require('../../../assets/image/avatar.png')}
+          source={avatarUrl || require('../../../../assets/images/avatar.png')}
           style={styles.avatar}
         />
         <View style={styles.info}>

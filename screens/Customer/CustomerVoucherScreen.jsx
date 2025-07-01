@@ -53,20 +53,19 @@ const styles = StyleSheet.create({
 
   fixedButtonContainer: {
     position: "absolute",
-    bottom: 0,
+    bottom:0,
     left: 0,
     right: 0,
     backgroundColor: "#fff",
-    padding: 12,
-    borderTopWidth: 1,
-    borderTopColor: "#ccc",
+    padding: 30,
   },
 
   confirmButton: {
     backgroundColor: "#68BD6C",
     borderRadius: 30,
-    paddingVertical: 12,
+    paddingVertical: 10,
     alignItems: "center",
+    marginBottom:30
   },
 
   confirmButtonText: {

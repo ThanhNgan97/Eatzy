@@ -40,7 +40,7 @@ const Index = () => {
           </TouchableOpacity>
         )}
 
-        <TouchableOpacity onPress={() => navigation.navigate('Home', { screen: 'CustomerNotificationScreen' })}>
+        <TouchableOpacity onPress={() => navigation.navigate('CustomerNotificationScreen')}>
           <View style={styles.greetingHeaderSquare}>
             <DynamicIcon type="Feather" name="bell" size={20} color="#33363F" />
           </View>

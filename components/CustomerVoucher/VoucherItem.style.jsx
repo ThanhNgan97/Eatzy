@@ -249,15 +249,15 @@ modalOverlay: {
   underStandButton: {
     backgroundColor: "#68BD6C", 
     borderRadius: 30,
-    paddingVertical: 12,
+    paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
   },
 
   underStandButtonText: {
     color: "#fff",
-    fontWeight: "bold",
     fontSize: 16,
+    fontFamily:fonts.HelveticaNeueBold
   },
 
 
@@ -372,7 +372,7 @@ modalOverlay: {
 
   okButtonTAndCs: {
     backgroundColor: "#68BD6C",
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderRadius: 25,
     alignItems: "center",
     marginTop: 10,

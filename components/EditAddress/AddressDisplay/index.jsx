@@ -31,10 +31,7 @@ const AddressDisplay = () => {
           </Text>
           <TouchableOpacity
             onPress={() =>
-              navigation.navigate("Payment", {
-                screen: "CustomerProvinceScreen",
-              })
-            }
+              navigation.navigate( "CustomerProvinceScreen")}
           >
             <View style={{ transform: [{ rotate: "0deg" }] }}>
               <DynamicIcon

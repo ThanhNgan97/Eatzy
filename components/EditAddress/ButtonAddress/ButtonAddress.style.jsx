@@ -3,7 +3,7 @@ import fonts from '../../../constants/fonts';
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 16,
+    paddingVertical: 30,
     paddingHorizontal: 20,
   },
 
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
     borderColor:"#68BD6C",
     justifyContent:'center',
     alignItems:'center',
-    height:45
+    height:45,
+    marginBottom:20
 
   },
 
@@ -36,7 +37,8 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     width:130,
-    height:45
+    height:45,
+    marginBottom:20
 
 
   },

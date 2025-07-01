@@ -26,7 +26,7 @@ const OrderData = () => {
           code={item.code}
           items={item.items}
           type={item.type}
-          avatarUrl={require('../../../assets/image/avatar.png')} 
+          avatarUrl={require('../../../../assets/images/avatar.png')} 
         />
       ))}
     </View>

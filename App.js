@@ -23,12 +23,17 @@ import CustomerPaymentScreen from "./screens/Customer/CustomerPaymentScreen";
 import CustomerPaymentMethodScreen from "./screens/Customer/CustomerPaymentMethodScreen";
 import CustomerProvinceScreen from "./screens/Customer/CustomerProvinceScreen";
 import CustomerNotificationScreen from "./screens/Customer/CustomerNotificationScreen";
+import ShopOrderDetailScreen from './screens/Shop/ShopOrdersScreen';
 
 import AddressBar from './shared/AddressBar/index'
 import SearchBar from './shared/SearchBar/index'
 import MyTabBars from './shared/BottomNavigation';
 import DynamicIcon from './shared/Icons/DynamicIcon';
 import CustomerMapPickerScreen from "./shared/Map/CustomerMapPickerScreen";
+import ShopOrdersScreen from './screens/Shop/ShopOrdersScreen';
+import ShopReportScreen from './screens/Shop/ShopReportScreen';
+import ShopHomeScreen from './screens/Shop/ShopHomeScreen';
+import ShopScreen from './screens/Shop/ShopScren';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,7 +80,7 @@ const createHeaderOptions = (title, navigationTarget = 'Home') => ({ navigation 
         <View style={styles.iconContainer}>
           <DynamicIcon
             type="MaterialIcons"
-            name="keyboard-arrow-left"
+            name="arrow-back"
             size={24}
             color="#7e7e7e"
           />
@@ -85,304 +90,98 @@ const createHeaderOptions = (title, navigationTarget = 'Home') => ({ navigation 
   ),
 });
 
+//api placeholder
+const role = 'user';
 
-function getTabBarVisibility(route) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? 'CustomerHomeScreen';
+const CustomerTab = (getHeaderOptions) => () => (
+  <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
+    <Tab.Screen
+    name="Home"
+    component={CustomerHomeScreen}
+    options={{ headerShown: false }}
 
-  const hiddenRoutes = [
-    'CustomerCartDetailScreen',
-    'CustomerFoodListScreen',
-    'CustomerFastFoodScreen',
-    'CustomerDrinksScreen',
-    'CustomerDessertScreen',
-    'CustomerSelectAddressScreen',
-    'CustomerEditAddressScreen',
-    'CustomerVoucherScreen'
-  ];
+    />
+    <Tab.Screen
+      name="Cart"
+      component={CustomerCartScreen}
+      options={createHeaderOptions('Cart', 'Home')}
+    />
+    <Tab.Screen
+      name="Payment"
+      component={CustomerPaymentScreen}
+      options={createHeaderOptions('Payment', 'Home')}
 
-  if (hiddenRoutes.includes(routeName)) {
-    return 'none';
+    />
+    <Tab.Screen
+      name="Profile"
+      component={CustomerHomeScreen}
+      options={{ headerShown: false }}
+    />
+  </Tab.Navigator>
+);
+
+const ShopTab = (getHeaderOptions) => () => (
+  <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
+  <Tab.Screen
+      name="Home"
+      component={ShopHomeScreen}
+      options={{ headerShown: false }}
+    />
+
+    <Tab.Screen
+      name="Orders"
+      component={ShopOrdersScreen}
+      options={getHeaderOptions('Cart')}
+    />
+    <Tab.Screen
+      name="Report"
+      component={ShopReportScreen}
+      options={{ headerShown: false }}
+    />
+   <Tab.Screen
+      name="Shop"
+      component={ShopScreen}
+      options={getHeaderOptions('Shop')}
+    /> 
+
+  </Tab.Navigator>
+);
+
+const ShipperTab = (getHeaderOptions) => () => (
+  <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
+
+  </Tab.Navigator>
+)
+
+export default function App() {
+  const [fontsLoaded] = useFonts({
+    [fonts.HelveticaNeueMedium]: require('./assets/fonts/HelveticaNeueMedium.otf'),
+    [fonts.HelveticaNeueBold]: require('./assets/fonts/HelveticaNeueBold.otf'),
+    [fonts.HelveticaNeueBlackItalic]: require('./assets/fonts/HelveticaNeueBlackItalic.otf'),
+    [fonts.HelveticaNeueMediumItalic]: require('./assets/fonts/HelveticaNeueMediumItalic.otf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
   }
 
-  return 'flex';
-}
+  const getHeaderOptions = (title, target) => createHeaderOptions(title, target);
+
+  const RoleBasedTab = role == 'user' ? CustomerTab : role == 'shop' ? ShopTab  : ShipperTab
+
+ return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="MainTabs"
+            component={RoleBasedTab(getHeaderOptions)}
+            options={{ headerShown: false }}
+          />
 
 
-const HomeStack = createNativeStackNavigator();
-
-function PaymentStackScreen() {
-  return (
-    <Stack.Navigator>
-       <Stack.Screen
-          name="CustomerPaymentScreen"
-          component={CustomerPaymentScreen}
-          options={({ navigation }) => ({
-          header: () => (
-            <View
-              style={{
-                backgroundColor: '#F4F8F7',
-                paddingTop: 30,
-                paddingHorizontal: 16,
-                paddingBottom: 10,
-              }}
-            >
-            <TouchableOpacity 
-              onPress={() => navigation.navigate("CustomerSelectAddressScreen")}
-              style={{ marginBottom: 10 }}
-            >
-                <AddressBar />
-            </TouchableOpacity>
-
-
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginTop: 8,
-                }}
-              >
-                <TouchableOpacity
-                  onPress={() => navigation.navigate("Home")}
-                  style={{ position: 'absolute', left: 0 }}
-                >
-                  <View
-                    style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 100,
-                      backgroundColor: '#fff',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <DynamicIcon
-                      type="Ionicons"
-                      name="arrow-back"
-                      size={18}
-                      color="#7e7e7e"
-                    />
-                  </View>
-                </TouchableOpacity>
-                <Text
-                  style={{
-                    color: '#7e7e7e',
-                    fontSize: 18,
-                    textAlign: 'center',
-                    fontFamily: fonts.HelveticaNeueMedium,
-                  }}
-                >
-                  Payment
-                </Text>
-              </View>
-            </View>
-          ),
-
-          })}
-        />
-      <Stack.Screen
-          name="CustomerSelectAddressScreen"
-          component={CustomerSelectAddressScreen}
-          options={({ navigation }) => ({
-            headerTitle: () => (
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: '#7e7e7e',
-                  fontFamily: fonts.HelveticaNeueMedium,
-                }}
-              >
-                Select Address
-              </Text>
-            ),
-            headerTitleAlign: 'center',
-            headerStyle: {
-              backgroundColor: '#F4F8F7',
-              elevation: 0,
-              shadowOpacity: 0,
-              borderBottomWidth: 0,
-              height: 90,
-              paddingTop: 20,
-            },
-            headerShadowVisible: false,
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <View style={styles.squareIcon}>
-                  <View style={styles.iconContainer}>
-                    <DynamicIcon
-                      type="Ionicons"
-                      name="arrow-back"
-                      size={20}
-                      color="#7e7e7e"
-                    />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            ),
-            headerLeftContainerStyle: {
-              marginLeft: 16,
-              marginTop: 10,
-            },
-          })}
-        />
-
-
-        <Stack.Screen
-          name="CustomerEditAddressScreen"
-          component={CustomerEditAddressScreen}
-          options={({ navigation }) => ({
-            headerTitle: () => (
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: '#7e7e7e',
-                  fontFamily: fonts.HelveticaNeueMedium,
-                }}
-              >
-                Edit Address
-              </Text>
-            ),
-            headerTitleAlign: 'center',
-            headerStyle: {
-              backgroundColor: '#F4F8F7',
-              elevation: 0,
-              shadowOpacity: 0,
-              borderBottomWidth: 0,
-              height: 90,
-              paddingTop: 20,
-            },
-            headerShadowVisible: false,
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <View style={styles.squareIcon}>
-                  <View style={styles.iconContainer}>
-                    <DynamicIcon
-                      type="Ionicons"
-                      name="arrow-back"
-                      size={20}
-                      color="#7e7e7e"
-                    />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            ),
-            headerLeftContainerStyle: {
-              marginLeft: 16,
-              marginTop: 10,
-            },
-          })}
-    />
-        
-      <Stack.Screen 
-        name="CustomerCartScreen"
-        component={CustomerCartScreen} 
-        options={{headerShown:false}}
-      />
-
-            <Stack.Screen
-          name="CustomerPaymentMethodScreen"
-          component={CustomerPaymentMethodScreen}
-          options={({ navigation }) => ({
-            headerTitle: () => (
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: '#7e7e7e',
-                  fontFamily: fonts.HelveticaNeueMedium,
-                }}
-              >
-                Payment Methods
-              </Text>
-            ),
-            headerTitleAlign: 'center',
-            headerStyle: {
-              backgroundColor: '#F4F8F7',
-              elevation: 0,
-              shadowOpacity: 0,
-              borderBottomWidth: 0,
-              height: 90,
-              paddingTop: 20,
-            },
-            headerShadowVisible: false,
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <View style={styles.squareIcon}>
-                  <View style={styles.iconContainer}>
-                    <DynamicIcon
-                      type="Ionicons"
-                      name="arrow-back"
-                      size={20}
-                      color="#7e7e7e"
-                    />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            ),
-            headerLeftContainerStyle: {
-              marginLeft: 16,
-              marginTop: 10,
-            },
-          })}
-        />
-
-
-        <Stack.Screen
-          name="CustomerProvinceScreen"
-          component={CustomerProvinceScreen}
-          options={({ navigation }) => ({
-            headerTitle: () => (
-              <View style={{ width: '110%' }}>
-                <SearchBar placeholder="Search address..." />
-              </View>
-            ),
-            headerTitleAlign: 'left',
-            headerStyle: {
-              backgroundColor: '#F4F8F7',
-              elevation: 0,
-              shadowOpacity: 0,
-              borderBottomWidth: 0,
-              height: 90,
-              paddingTop: 20,
-            },
-            headerShadowVisible: false,
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <View style={styles.squareIcon}>
-                  <View style={styles.iconContainer}>
-                    <DynamicIcon
-                      type="Ionicons"
-                      name="arrow-back"
-                      size={20}
-                      color="#7e7e7e"
-                    />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            ),
-            headerLeftContainerStyle: {
-              marginLeft: 16,
-              marginTop: 10,
-            },
-          })}
-        />
-
-
-    </Stack.Navigator>
-  )
-}
-
-function HomeStackScreen() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
+         <Stack.Screen
         name="CustomerHomeScreen"
         component={CustomerHomeScreen}
-        options={{ headerShown: false }}
-      />
-
-      <Stack.Screen
-        name="CustomerCartScreen"
-        component={CustomerCartScreen}
         options={{ headerShown: false }}
       />
 
@@ -408,52 +207,6 @@ function HomeStackScreen() {
               <View style={styles.squareIcon}>
                 <View style={styles.iconContainer}>
                   <DynamicIcon type="Ionicons" name="arrow-back" size={20} color="#7e7e7e" />
-                </View>
-              </View>
-            </TouchableOpacity>
-          ),
-          headerLeftContainerStyle: {
-            marginLeft: 16,
-            marginTop: 10,
-          },
-        })}
-      />
-
-      <Stack.Screen
-        name="CustomerSelectAddressScreen"
-        component={CustomerSelectAddressScreen}
-        options={({ navigation }) => ({
-          headerTitle: () => (
-            <Text
-              style={{
-                fontSize: 16,
-                color: '#7e7e7e',
-                fontFamily: fonts.HelveticaNeueMedium,
-              }}
-            >
-              Select Address
-            </Text>
-          ),
-          headerTitleAlign: 'center',
-          headerStyle: {
-            backgroundColor: '#F4F8F7',
-            elevation: 0,
-            shadowOpacity: 0,
-            borderBottomWidth: 0,
-            height: 90,
-            paddingTop: 20,
-          },
-          headerShadowVisible: false,
-          headerLeft: () => (
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <View style={styles.squareIcon}>
-                <View style={styles.iconContainer}>
-                  <DynamicIcon
-                    type="Ionicons"
-                    name="arrow-back"
-                    size={20}
-                    color="#7e7e7e"
-                  />
                 </View>
               </View>
             </TouchableOpacity>
@@ -869,73 +622,102 @@ function HomeStackScreen() {
             },
           })}
         />
-    </Stack.Navigator>
-  );
-}
+        
 
-export default function App() {
-  const [fontsLoaded] = useFonts({
-    [fonts.HelveticaNeueMedium]: require('./assets/fonts/HelveticaNeueMedium.otf'),
-    [fonts.HelveticaNeueBold]: require('./assets/fonts/HelveticaNeueBold.otf'),
-    [fonts.HelveticaNeueBlackItalic]: require('./assets/fonts/HelveticaNeueBlackItalic.otf'),
-    [fonts.HelveticaNeueMediumItalic]: require('./assets/fonts/HelveticaNeueMediumItalic.otf'),
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
- return (
-  <SafeAreaProvider>
-    <View style={styles.container}>
-      <NavigationContainer>
-        <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
-          
-        <Tab.Screen
-          name="Home"
-          component={HomeStackScreen}
-          options={({ route }) => ({
-            headerShown: false,
-            tabBarStyle: {
-              display: getTabBarVisibility(route),
-              backgroundColor: '#fff',
-              borderTopWidth: 0,
-              elevation: 0,
-            },
-          })}
-        />
-
-
-        <Tab.Screen
-          name="Cart"
-          component={CustomerCartScreen}
+        <Stack.Screen
+          name="CustomerPaymentScreen"
+          component={CustomerPaymentScreen}
           options={({ navigation }) => ({
-            headerTitle: () => (
-              <View style={{ paddingHorizontal: 16 }}>
+          header: () => (
+            <View
+              style={{
+                backgroundColor: '#F4F8F7',
+                paddingTop: 30,
+                paddingHorizontal: 16,
+                paddingBottom: 10,
+              }}
+            >
+            <TouchableOpacity 
+              onPress={() => navigation.navigate("CustomerSelectAddressScreen")}
+              style={{ marginBottom: 10 }}
+            >
+                <AddressBar />
+            </TouchableOpacity>
+
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginTop: 8,
+                }}
+              >
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Home")}
+                  style={{ position: 'absolute', left: 0 }}
+                >
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 100,
+                      backgroundColor: '#fff',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={18}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </TouchableOpacity>
                 <Text
                   style={{
                     color: '#7e7e7e',
                     fontSize: 18,
+                    textAlign: 'center',
                     fontFamily: fonts.HelveticaNeueMedium,
                   }}
                 >
-                  Cart
+                  Payment
                 </Text>
               </View>
+            </View>
+          ),
+
+          })}
+        />
+      <Stack.Screen
+          name="CustomerSelectAddressScreen"
+          component={CustomerSelectAddressScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Select Address
+              </Text>
             ),
             headerTitleAlign: 'center',
             headerStyle: {
               backgroundColor: '#F4F8F7',
               elevation: 0,
               shadowOpacity: 0,
+              borderBottomWidth: 0,
               height: 90,
               paddingTop: 20,
             },
+            headerShadowVisible: false,
             headerLeft: () => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate("Home")}
-                style={{ marginLeft: 16 }}
-              >
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <View style={styles.squareIcon}>
                   <View style={styles.iconContainer}>
                     <DynamicIcon
@@ -948,36 +730,217 @@ export default function App() {
                 </View>
               </TouchableOpacity>
             ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
           })}
         />
 
-
-        <Tab.Screen
-          name="Payment"
-          component={PaymentStackScreen}
-          options={({ route }) => ({
-            headerShown: false,
-            tabBarStyle: {
-              display: getTabBarVisibility(route),
-              backgroundColor: '#fff',
-              borderTopWidth: 0,
+{/* 
+        <Stack.Screen
+          name="CustomerEditAddressScreen"
+          component={CustomerEditAddressScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Edit Address
+              </Text>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
               elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+          })}
+    /> */}
+        
+      <Stack.Screen 
+        name="CustomerCartScreen"
+        component={CustomerCartScreen} 
+        options={{headerShown:false}}
+      />
+
+            <Stack.Screen
+          name="CustomerPaymentMethodScreen"
+          component={CustomerPaymentMethodScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: '#7e7e7e',
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Payment Methods
+              </Text>
+            ),
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
             },
           })}
         />
 
 
-          <Tab.Screen
-            name="Profile"
-            component={CustomerHomeScreen}
-            options={{ headerShown: false }}
-          />
+        <Stack.Screen
+          name="CustomerProvinceScreen"
+          component={CustomerProvinceScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <View style={{ width: '110%' }}>
+                <SearchBar placeholder="Search address..." />
+              </View>
+            ),
+            headerTitleAlign: 'left',
+            headerStyle: {
+              backgroundColor: '#F4F8F7',
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+          })}
+        />
 
-        </Tab.Navigator>
+          <Stack.Screen
+            name="ShopOrderDetailScreen"
+            component={ShopOrderDetailScreen}
+            options={({ route, navigation }) => ({
+              headerTitle: `Order ${route.params.orderCode}`,
+              headerBackTitleVisible: false,
+              headerTitleAlign: 'center',
+              headerStyle: {
+                backgroundColor: '#F4F8F7',
+                elevation: 0,
+                shadowOpacity: 0,
+                borderBottomWidth: 0,
+              },
+              headerShadowVisible: false,
+              headerTintColor: '#33363F',
+              headerLeft: () => (
+                <TouchableOpacity
+                   onPress={() => navigation.goBack()}
+                  style={{
+                    marginLeft: 16,
+                    width: 40,
+                    height: 40,
+                    borderRadius: 100,
+                    backgroundColor: '#fff',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <DynamicIcon
+                    type="AntDesign"
+                    name="arrowleft"
+                    size={20}
+                    color="#7e7e7e"
+                  />
+                </TouchableOpacity>
+              ),
+              headerRight: () => (
+                <TouchableOpacity
+                  onPress={() => {
+
+                    console.log('Call pressed');
+                  }}
+                  style={{
+                    marginRight: 16,
+                    width: 40,
+                    height: 40,
+                    borderRadius: 100,
+                    backgroundColor: '#fff',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <DynamicIcon
+                    type="Feather" 
+                    name="phone"
+                    size={18}
+                    color="#7e7e7e"
+                  />
+                </TouchableOpacity>
+              ),
+            })}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
-    </View>
-  </SafeAreaProvider>
 );
 }
 
@@ -998,7 +961,6 @@ const styles = StyleSheet.create({
 },
 
 iconContainer: {
-  paddingHorizontal: 10,
   justifyContent: 'center',
   alignItems: 'center',
 },

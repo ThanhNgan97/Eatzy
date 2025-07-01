@@ -14,9 +14,10 @@ const Index = () => {
   const navigation = useNavigation();
 
   const handleCategoryPress = (categoryValue) => {
+
     const screen = screenMap[categoryValue];
     if (screen) {
-      navigation.navigate("Home", {
+      navigation.navigate(screen, {
         screen,
         params: { category: categoryValue },
       });

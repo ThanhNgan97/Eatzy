@@ -6,12 +6,13 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import CustomerBadge from "../components/ShopOrderDetail/CustomerBadge";
-import OrderBadge from "../components/ShopOrderDetail/OrderBadge/index";
+
 import OrderItemCard from "../components/ShopOrderDetail/OrderItemCard";
 import BottomModal from "../components/ShopOrderDetail/BottomModal";
 import CallBottomModal from "../components/ShopOrderDetail/CallBottomModal/index";
 import DynamicIcon from "../shared/Icons/DynamicIcon";
+import CustomerBadge from "../../components/Shop/ShopOrderDetail/CustomerBadge";
+import OrderBadge from "../../components/Shop/ShopOrderDetail/OrderBadge";
 
 const ShopOrderDetailScreen = ({ navigation }) => {
   const [callModalVisible, setCallModalVisible] = useState(false);

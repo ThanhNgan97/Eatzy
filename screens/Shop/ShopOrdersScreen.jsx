@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, View } from "react-native";
-import OrderTabs from "../components/ShopOrders/OrderTabs";
-import OrderData from "../components/ShopOrders/OrderCard/OrderData";
+import OrderTabs from "../../components/Shop/ShopOrders/OrderTabs";
+import OrderData from "../../components/Shop/ShopOrders/OrderCard/OrderData";
 
 const ShopOrdersScreen = () => {
   return (

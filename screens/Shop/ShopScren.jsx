@@ -1,14 +1,12 @@
 import { ScrollView, StyleSheet } from "react-native";
-import ShopReport from "../../components/Shop/ShopReport";
 
-const ShopReportScreen = () => {
+const ShopScreen = () => {
   return (
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
-      <ShopReport />
     </ScrollView>
   );
 };
@@ -29,4 +27,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShopReportScreen;
+export default ShopScreen;

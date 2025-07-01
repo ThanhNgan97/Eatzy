@@ -8,6 +8,9 @@ const ICON_MAP = {
   Cart: { type: 'Ionicons', name: 'cart-outline' },
   Payment: { type: 'Ionicons', name: 'card-outline' },
   Profile: { type: 'Ionicons', name: 'person-outline' },
+  Orders: { type: 'MaterialCommunityIcons', name: 'cart-outline' },
+  Report: { type: 'Ionicons', name: 'bar-chart-outline' },
+  Shop:   { type: 'Ionicons', name: 'storefront-outline' },
 };
 
 const MyTabBars = ({ state, descriptors, navigation }) => {
