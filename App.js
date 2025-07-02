@@ -147,7 +147,7 @@ const ShopTab = (getHeaderOptions) => () =>
       <Tab.Screen
         name="Report"
         component={ShopReportScreen}
-        options={{ headerShown: false }}
+        options={getHeaderOptions("Report")}
       />
       <Tab.Screen
         name="Shop"
