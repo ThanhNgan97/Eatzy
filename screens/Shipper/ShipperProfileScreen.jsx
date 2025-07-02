@@ -1,3 +1,4 @@
+import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import ShipperProfile from "../../components/Shipper/ShipperProfile/ShipperProfile";
 
@@ -18,13 +19,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F4F8F7",
   },
-
   content: {
-    paddingHorizontal: 10,
-    paddingVertical: 20,
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingBottom: 30,
   },
 });
 
