@@ -41,6 +41,14 @@ import ShipperProfileScreen from "./screens/Shipper/ShipperProfileScreen";
 import ShipperOrderDetailScreen from "./screens/Shipper/ShipperOrderDetailScreen";
 import ShipperProfileEditScreen from "./screens/Shipper/ShipperProfileEditScreen";
 
+//Auth
+import WelcomeScreen from "./screens/Auth/WelcomeScreen";
+import RegisterScreen from "./screens/Auth/RegisterScreen";
+import ForgotPasswordScreen from "./screens/Auth/ForgotPasswordScreen";
+import OTPVerificationScreen from "./screens/Auth/OTPVerificationScreen";
+import ResetPasswordScreen from "./screens/Auth/ResetPasswordScreen";
+import LoginScreen from "./screens/Auth/LoginScreen";
+
 //Bar
 import AddressBar from "./shared/AddressBar/index";
 import SearchBar from "./shared/SearchBar/index";
@@ -211,7 +219,40 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+          options={getHeaderOptions("Register", "goBack")}
+        />
+        <Stack.Screen
+          name="ForgotPassword"
+          component={ForgotPasswordScreen}
+          options={getHeaderOptions("Forgot Password", "goBack")}
+        />
+        <Stack.Screen
+          name="OTPVerification"
+          component={OTPVerificationScreen}
+          options={getHeaderOptions("OTP Verification", "goBack")}
+        />
+        <Stack.Screen
+          name="ResetPassword"
+          component={ResetPasswordScreen}
+          options={getHeaderOptions("Reset Password", "goBack")}
+        />
+
         <Stack.Screen
           name="MainTabs"
           component={RoleBasedTab(getHeaderOptions)}
