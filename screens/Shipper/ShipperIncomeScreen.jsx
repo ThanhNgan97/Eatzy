@@ -22,9 +22,6 @@ const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 10,
     paddingVertical: 20,
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 
