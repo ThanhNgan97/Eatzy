@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet } from "react-native";
-import ShipperIncome from "../../components/Shipper/ShipperIncome/ShipperIncome";
+import ShipperIncome from "../../components/Shipper/ShiperIncome/ShipperIncome";
 
 const ShipperIncomeScreen = () => {
   return (

@@ -38,7 +38,9 @@ import ShipperHomeScreen from "./screens/Shipper/ShipperHomeScreen";
 import ShipperOrderScreen from "./screens/Shipper/ShipperOrderScreen";
 import ShipperIncomeScreen from "./screens/Shipper/ShipperIncomeScreen";
 import ShipperProfileScreen from "./screens/Shipper/ShipperProfileScreen";
+import ShipperOrderDetailScreen from "./screens/Shipper/ShipperOrderDetailScreen";
 
+//Bar
 import AddressBar from "./shared/AddressBar/index";
 import SearchBar from "./shared/SearchBar/index";
 import MyTabBars from "./shared/BottomNavigation";
@@ -981,6 +983,12 @@ export default function App() {
           name="AddFood"
           component={AddFoodScreen}
           options={getHeaderOptions("Add new food", "goBack")}
+        />
+
+        <Stack.Screen
+          name="ShipperOrderDetailScreen"
+          component={ShipperOrderDetailScreen}
+          options={getHeaderOptions("Order", "goBack")}
         />
       </Stack.Navigator>
     </NavigationContainer>
