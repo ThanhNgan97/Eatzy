@@ -8,7 +8,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
-//CustomerScreen
+//Customer Screen
 import CustomerHomeScreen from "./screens/Customer/CustomerHomeScreen";
 import CustomerCartDetailScreen from "./screens/Customer/CustomerCartDetailScreen";
 import CustomerCartScreen from "./screens/Customer/CustomerCartScreen";
@@ -24,7 +24,7 @@ import CustomerPaymentMethodScreen from "./screens/Customer/CustomerPaymentMetho
 import CustomerProvinceScreen from "./screens/Customer/CustomerProvinceScreen";
 import CustomerNotificationScreen from "./screens/Customer/CustomerNotificationScreen";
 
-//ShopScreen
+//Shop Screen
 import ShopOrderDetailScreen from "./screens/Shop/ShopOrdersScreen";
 import ShopMenuScreen from "./screens/Shop/ShopMenuScreen";
 import ShopOrdersScreen from "./screens/Shop/ShopOrdersScreen";
@@ -33,7 +33,11 @@ import ShopHomeScreen from "./screens/Shop/ShopHomeScreen";
 import ShopScreen from "./screens/Shop/ShopScren";
 import AddFoodScreen from "./screens/Shop/AddFoodScreen";
 
-//ShiperScreen
+//Shipper Screen
+import ShipperHomeScreen from "./screens/Shipper/ShipperHomeScreen";
+import ShipperOrderScreen from "./screens/Shipper/ShipperOrderScreen";
+import ShipperIncomeScreen from "./screens/Shipper/ShipperIncomeScreen";
+import ShipperProfileScreen from "./screens/Shipper/ShipperProfileScreen";
 
 import AddressBar from "./shared/AddressBar/index";
 import SearchBar from "./shared/SearchBar/index";
@@ -102,7 +106,8 @@ const createHeaderOptions =
 
 //api placeholder
 // const role = 'user';
-const role = "shop";
+// const role = "shop";
+const role = "shipper";
 
 const CustomerTab = (getHeaderOptions) => () =>
   (
@@ -158,7 +163,30 @@ const ShopTab = (getHeaderOptions) => () =>
   );
 
 const ShipperTab = (getHeaderOptions) => () =>
-  <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}></Tab.Navigator>;
+  (
+    <Tab.Navigator tabBar={(props) => <MyTabBars {...props} />}>
+      <Tab.Screen
+        name="Home"
+        component={ShipperHomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Orders"
+        component={ShipperOrderScreen}
+        options={getHeaderOptions("Orders", "Home")}
+      />
+      <Tab.Screen
+        name="Income"
+        component={ShipperIncomeScreen}
+        options={getHeaderOptions("Income", "Home")}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ShipperProfileScreen}
+        options={getHeaderOptions("Profile", "Home")}
+      />
+    </Tab.Navigator>
+  );
 
 export default function App() {
   const [fontsLoaded] = useFonts({
