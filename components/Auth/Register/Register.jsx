@@ -4,18 +4,19 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
   Image,
 } from "react-native";
 import { Ionicons, Feather, FontAwesome } from "@expo/vector-icons";
 import styles from "./Register.style";
+import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 
 const Register = ({ onRegister, onNavigateLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <View style={styles.container}>
-      <Image
+      <View style={styles.containerRegister}>
+          <Image
         source={{
           uri: "https://a.pinatafarm.com/956x952/7fd2c04789/peace-sign-hamster.jpeg",
         }}
@@ -24,9 +25,10 @@ const Register = ({ onRegister, onNavigateLogin }) => {
       <Text style={styles.title}>Create your{"\n"}Account</Text>
 
       <View style={styles.inputContainer}>
-        <FontAwesome
+        <DynamicIcon 
+          type="Feather"
           name="user"
-          size={20}
+          size={18}
           color="#C9C9C9"
           style={styles.icon}
         />
@@ -34,7 +36,13 @@ const Register = ({ onRegister, onNavigateLogin }) => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Feather name="mail" size={20} color="#C9C9C9" style={styles.icon} />
+        <DynamicIcon 
+          type="Feather" 
+          name="mail" 
+          size={18} 
+          color="#C9C9C9" 
+          style={styles.icon} 
+        />
         <TextInput
           style={styles.input}
           placeholder="Email"
@@ -43,16 +51,23 @@ const Register = ({ onRegister, onNavigateLogin }) => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Feather name="lock" size={20} color="#C9C9C9" style={styles.icon} />
+        <DynamicIcon 
+          type="Feather" 
+          name="lock" 
+          size={18} 
+          color="#C9C9C9" 
+          style={styles.icon} 
+        />
         <TextInput
           style={styles.input}
           placeholder="Password"
           secureTextEntry={!showPassword}
         />
         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Feather
+          <DynamicIcon 
+          type="Feather"
             name={showPassword ? "eye" : "eye-off"}
-            size={20}
+            size={15}
             color="#C9C9C9"
           />
         </TouchableOpacity>
@@ -67,6 +82,8 @@ const Register = ({ onRegister, onNavigateLogin }) => {
           Already have an account? <Text style={styles.loginText}>Login</Text>
         </Text>
       </TouchableOpacity>
+      </View>
+      
     </View>
   );
 };
