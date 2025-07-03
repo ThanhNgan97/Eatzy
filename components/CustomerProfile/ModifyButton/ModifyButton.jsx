@@ -10,7 +10,7 @@ const ModifyButton = () => {
   return (
     <TouchableOpacity
       style={styles.modifyButton}
-      onPress={() => navigation.navigate("ShipperProfileEditScreen")}
+      onPress={() => navigation.navigate("CustomerProfileEditScreen")}
     >
       <Text style={styles.modifyText}>Modify</Text>
       <DynamicIcon type="Feather" name="edit" size={14} color="white" />

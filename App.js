@@ -21,6 +21,7 @@ import CustomerPaymentMethodScreen from "./screens/Customer/CustomerPaymentMetho
 import CustomerProvinceScreen from "./screens/Customer/CustomerProvinceScreen";
 import CustomerNotificationScreen from "./screens/Customer/CustomerNotificationScreen";
 import CustomerProfileScreen from "./screens/Customer/CustomerProfileScreen";
+import CustomerProfileEditScreen from "./screens/Customer/CustomerProfileEditScreen"
 
 //Shop Screen
 import ShopOrderDetailScreen from "./screens/Shop/ShopOrdersScreen";
@@ -966,6 +967,12 @@ export default function App() {
               </TouchableOpacity>
             ),
           })}
+        />
+
+        <Stack.Screen
+          name="CustomerProfileEditScreen"
+          component={CustomerProfileEditScreen}
+          options={getHeaderOptions("Profile", "goBack")}
         />
 
         <Stack.Screen

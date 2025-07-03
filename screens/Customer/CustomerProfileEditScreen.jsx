@@ -1,8 +1,14 @@
 import { StyleSheet, ScrollView, View } from "react-native";
 import fonts from "../../constants/fonts";
-import CustomerProfileEdit from "../../components/CustomerProfileEdit/CustomerProfileEdit";
+import AvatarWithCamera from "../../components/CustomerProfileEdit/AvatarWithCamera/AvatarWithCamera";
+import InfoCard from "../../components/CustomerProfileEdit/InfoCard/InfoCard";
+import LogoutButton from "../../components/CustomerProfileEdit/LogoutButton/LogoutButton";
 
 const CustomerProfileEdit = () => {
+  const handleLogout = () => {
+    console.log("Logout pressed");
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -10,7 +16,9 @@ const CustomerProfileEdit = () => {
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        <CustomerProfileEdit />
+        <AvatarWithCamera/>
+        <InfoCard/>
+        <LogoutButton onPress={handleLogout}/>
       </ScrollView>
     </View>
   );

@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 const CustomAlert = ({
@@ -13,6 +14,7 @@ const CustomAlert = ({
   message,
   onClose,
   onConfirm,
+  onCancel, 
   containerStyle,
   titleStyle,
   messageStyle,
@@ -25,35 +27,39 @@ const CustomAlert = ({
 }) => {
   return (
     <Modal transparent visible={visible} animationType="fade">
-      <View style={styles.overlay}>
-        <View style={[styles.alertBox, containerStyle]}>
-          <Text style={[styles.title, titleStyle]}>{title}</Text>
-          <Text style={[styles.message, messageStyle]}>{message}</Text>
+      <TouchableWithoutFeedback onPress={onClose}>
+        <View style={styles.overlay}>
+          <View style={[styles.alertBox, containerStyle]}>
+            <Text style={[styles.title, titleStyle]}>{title}</Text>
+            <Text style={[styles.message, messageStyle]}>{message}</Text>
 
-          <View style={styles.buttonRow}>
-            <TouchableOpacity
-              onPress={onClose}
-              style={[styles.button, styles.cancel, cancelButtonStyle]}
-            >
-              <Text style={[styles.buttonText, cancelTextStyle]}>
-                {cancelText}
-              </Text>
-            </TouchableOpacity>
+            <View style={styles.buttonRow}>
+              <TouchableOpacity
+                onPress={onCancel || onClose} 
+                style={[styles.button, styles.cancel, cancelButtonStyle]}
+              >
+                <Text style={[styles.buttonText, cancelTextStyle]}>
+                  {cancelText}
+                </Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              onPress={onConfirm}
-              style={[styles.button, styles.confirm, confirmButtonStyle]}
-            >
-              <Text style={[styles.buttonText, confirmTextStyle]}>
-                {confirmText}
-              </Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                onPress={onConfirm}
+                style={[styles.button, styles.confirm, confirmButtonStyle]}
+              >
+                <Text style={[styles.buttonText, confirmTextStyle]}>
+                  {confirmText}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-      </View>
+
+      </TouchableWithoutFeedback>
     </Modal>
   );
 };
+
 
 export default CustomAlert;
 
