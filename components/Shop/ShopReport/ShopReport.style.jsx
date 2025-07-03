@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet } from "react-native";
 import fonts from "../../../constants/fonts";
 
 export default StyleSheet.create({
@@ -11,14 +11,14 @@ export default StyleSheet.create({
   totalIncome: {
     fontSize: 26,
     color: "#68BD6C",
-    fontWeight: "bold",
     alignSelf: "center",
-    marginBottom: 4,
+    marginBottom: 2,
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   dateText: {
-    fontSize: 12,
-    color: "#000000",
+    fontSize: 14,
+    color: "#222222",
     alignSelf: "center",
     marginBottom: 20,
     fontFamily: fonts.HelveticaNeueMedium,
@@ -32,7 +32,7 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     backgroundColor: "#fff",
-    borderRadius: 30,
+    borderRadius: 20,
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
@@ -42,8 +42,9 @@ export default StyleSheet.create({
 
   orderId: {
     fontSize: 18,
-    fontWeight: "bold",
     color: "#2B2B2B",
+    fontFamily: fonts.HelveticaNeueBold,
+    marginBottom: 4,
   },
 
   orderTime: {
@@ -54,8 +55,8 @@ export default StyleSheet.create({
 
   statusBadge: {
     borderRadius: 30,
-    paddingHorizontal: 12,
-    paddingVertical: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
     justifyContent: "center",
     alignItems: "center",
     minWidth: 80,
@@ -67,7 +68,8 @@ export default StyleSheet.create({
 
   shippedText: {
     color: "#68BD6C",
-    fontWeight: "600",
+    fontFamily: fonts.HelveticaNeueMedium,
+    fontSize:12
   },
 
   canceled: {
@@ -76,6 +78,8 @@ export default StyleSheet.create({
 
   canceledText: {
     color: "#B84E4E",
-    fontWeight: "600",
+    fontFamily: fonts.HelveticaNeueMedium,
+    fontSize:12
+
   },
 });

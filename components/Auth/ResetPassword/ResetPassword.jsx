@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,7 +5,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import React, { useState } from "react";
 import styles from "./ResetPassword.style";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 

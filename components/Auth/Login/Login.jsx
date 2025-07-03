@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import styles from "./Login.style";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 
 const Login = ({ onLogin, onNavigateRegister, onNavigateForgot }) => {
   const [showPassword, setShowPassword] = useState(false);

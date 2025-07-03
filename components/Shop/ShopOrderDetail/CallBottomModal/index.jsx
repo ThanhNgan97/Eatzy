@@ -12,7 +12,7 @@ import {
 import * as Clipboard from 'expo-clipboard'; 
 import people from './callBottomModalData'; 
 import styles from './CallBottomModal.style';
-import DynamicIcon from '../../../shared/Icons/DynamicIcon';
+import DynamicIcon from '../../../../shared/Icons/DynamicIcon';
 
 const CallBottomModal = ({ visible, onClose }) => {
   const handleCopyPhone = async (phone) => {

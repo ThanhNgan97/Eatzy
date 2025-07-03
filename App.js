@@ -24,13 +24,14 @@ import CustomerProfileScreen from "./screens/Customer/CustomerProfileScreen";
 import CustomerProfileEditScreen from "./screens/Customer/CustomerProfileEditScreen"
 
 //Shop Screen
-import ShopOrderDetailScreen from "./screens/Shop/ShopOrdersScreen";
+import ShopOrderDetailScreen from "./screens/Shop/ShopOrderDetailScreen";
 import ShopMenuScreen from "./screens/Shop/ShopMenuScreen";
 import ShopOrdersScreen from "./screens/Shop/ShopOrdersScreen";
 import ShopReportScreen from "./screens/Shop/ShopReportScreen";
 import ShopHomeScreen from "./screens/Shop/ShopHomeScreen";
-import ShopScreen from "./screens/Shop/ShopScren";
+import ShopScreen from "./screens/Shop/ShopScreen";
 import AddFoodScreen from "./screens/Shop/AddFoodScreen";
+import ShopNotificationScreen from "./screens/Shop/ShopNotificationScreen"
 
 //Shipper Screen
 import ShipperHomeScreen from "./screens/Shipper/ShipperHomeScreen";
@@ -115,8 +116,8 @@ const createHeaderOptions =
   });
 
 //api placeholder
-const role = 'user';
-// const role = "shop";
+// const role = 'user';
+const role = "shop";
 // const role = "shipper";
 
 const CustomerTab = (getHeaderOptions) => () =>
@@ -219,7 +220,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Navigator initialRouteName="MainTabs">
         <Stack.Screen
           name="Welcome"
           component={WelcomeScreen}
@@ -968,6 +969,79 @@ export default function App() {
             ),
           })}
         />
+
+
+        <Stack.Screen
+          name="ShopNotificationScreen"
+          component={ShopNotificationScreen}
+          options={({ navigation }) => ({
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: "#7e7e7e",
+                  fontFamily: fonts.HelveticaNeueMedium,
+                }}
+              >
+                Notification
+              </Text>
+            ),
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#F4F8F7",
+              elevation: 0,
+              shadowOpacity: 0,
+              borderBottomWidth: 0,
+              height: 90,
+              paddingTop: 20,
+            },
+            headerShadowVisible: false,
+
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Ionicons"
+                      name="arrow-back"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+
+            headerRight: () => (
+              <TouchableOpacity
+                onPress={() => {
+                  console.log("Trash icon pressed");
+                }}
+              >
+                <View style={styles.squareIcon}>
+                  <View style={styles.iconContainer}>
+                    <DynamicIcon
+                      type="Feather"
+                      name="trash-2"
+                      size={20}
+                      color="#7e7e7e"
+                    />
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ),
+
+            headerLeftContainerStyle: {
+              marginLeft: 16,
+              marginTop: 10,
+            },
+            headerRightContainerStyle: {
+              marginRight: 16,
+              marginTop: 10,
+            },
+          })}
+        />   
+
 
         <Stack.Screen
           name="CustomerProfileEditScreen"

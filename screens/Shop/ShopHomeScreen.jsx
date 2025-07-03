@@ -1,5 +1,8 @@
 import { ScrollView, StyleSheet } from "react-native";
-import ShopHome from "../../components/Shop/ShopHome/ShopHome.jsx";
+import AddressBar from "../../shared/AddressBar/index.jsx"
+import ShopGreetingHeader from "../../components/Shop/ShopHome/ShopGreetingHeader/ShopGreetingHeader.jsx";
+import ShopStatusRow from "../../components/Shop/ShopHome/ShopStatusRow/ShopStatusRow.jsx";
+import MenuGrid from "../../components/Shop/ShopHome/MenuGrid/MenuGrid.jsx";
 
 const ShopHomeScreen = () => {
   return (
@@ -8,7 +11,10 @@ const ShopHomeScreen = () => {
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
-      <ShopHome />
+      <AddressBar/>
+      <ShopGreetingHeader/>
+      <ShopStatusRow/>
+      <MenuGrid/>
     </ScrollView>
   );
 };
@@ -20,7 +26,8 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    flexGrow: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 25,
   },
 });
 

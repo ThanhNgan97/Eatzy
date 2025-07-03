@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -6,16 +6,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-
-import OrderItemCard from "../components/ShopOrderDetail/OrderItemCard";
-import BottomModal from "../components/ShopOrderDetail/BottomModal";
-import CallBottomModal from "../components/ShopOrderDetail/CallBottomModal/index";
-import DynamicIcon from "../shared/Icons/DynamicIcon";
+import OrderItemCard from "../../components/Shop/ShopOrderDetail/OrderItemCard/index";
+import BottomModal from "../../components/Shop/ShopOrderDetail/BottomModal/index";
+import CallBottomModal from "../../components/Shop/ShopOrderDetail/CallBottomModal/index";
 import CustomerBadge from "../../components/Shop/ShopOrderDetail/CustomerBadge";
 import OrderBadge from "../../components/Shop/ShopOrderDetail/OrderBadge";
+import DynamicIcon from "../../shared/Icons/DynamicIcon";
 
-const ShopOrderDetailScreen = ({ navigation }) => {
+const ShopOrderDetailScreen = ({ navigation, route }) => {
   const [callModalVisible, setCallModalVisible] = useState(false);
+
+  useEffect(() => {
+    console.log("Route params:", route?.params);
+  }, []);
 
   useEffect(() => {
     navigation.setOptions({
@@ -49,7 +52,7 @@ const ShopOrderDetailScreen = ({ navigation }) => {
         </View>
       </ScrollView>
 
-      <BottomModal/>
+      <BottomModal />
 
       <CallBottomModal
         visible={callModalVisible}

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
 
   value: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#222222",
     fontFamily: fonts.HelveticaNeueMedium,
   },

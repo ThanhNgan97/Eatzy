@@ -6,7 +6,7 @@ const OrderBadge = () => {
     <View style={styles.container}>
         <View style={styles.row}>
             <Image
-                source={require('../../../assets/image/avatar.png')}
+                source={require('../../../../assets/images/avatar.png')}
                 style={styles.avatar}
             />
             <View style={styles.column}>

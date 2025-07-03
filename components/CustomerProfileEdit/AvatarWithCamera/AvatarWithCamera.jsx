@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Image, TouchableOpacity } from "react-native";
+import styles from "./AvatarWithCamera.stye";
 import * as ImagePicker from "expo-image-picker";
 import DynamicIcon from "../../../shared/Icons/DynamicIcon";
-import styles from "./AvatarWithCamera.stye";
+import { View, Image, TouchableOpacity } from "react-native";
 import CustomAlert from "../../../shared/CustomAlert/CustomAlert"; 
 
 const AvatarWithCamera = () => {
@@ -69,12 +69,12 @@ const AvatarWithCamera = () => {
 
       <CustomAlert
         visible={showAlert}
-        title="Chọn ảnh"
-        message="Bạn muốn chụp ảnh hay chọn từ thư viện?"
+        title="Select Image"
+        message="Would you like to take a photo or choose from library?"
         onClose={() => setShowAlert(false)}
         onConfirm={() => handlePickImage("camera")}
         onCancel={() => handlePickImage("library")}
-        cancelText="Thư viện"
+        cancelText="Library"
         confirmText="Camera"
         containerStyle={styles.alertContainer}
         titleStyle={styles.alertTitle}

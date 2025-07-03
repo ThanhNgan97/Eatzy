@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./Welcome.style";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
 const Welcome = ({ onLoginPress, onSignUpPress }) => {
   return (

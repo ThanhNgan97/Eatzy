@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './BottomModal.style';
-import DynamicIcon from '../../../shared/Icons/DynamicIcon';
+import DynamicIcon from '../../../../shared/Icons/DynamicIcon';
 
 const BottomModal = ({ onPress }) => {
   return (
