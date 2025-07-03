@@ -1,12 +1,9 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import fonts from "./constants/fonts";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 //Customer Screen
 import CustomerHomeScreen from "./screens/Customer/CustomerHomeScreen";
@@ -23,6 +20,7 @@ import CustomerPaymentScreen from "./screens/Customer/CustomerPaymentScreen";
 import CustomerPaymentMethodScreen from "./screens/Customer/CustomerPaymentMethodScreen";
 import CustomerProvinceScreen from "./screens/Customer/CustomerProvinceScreen";
 import CustomerNotificationScreen from "./screens/Customer/CustomerNotificationScreen";
+import CustomerProfileScreen from "./screens/Customer/CustomerProfileScreen";
 
 //Shop Screen
 import ShopOrderDetailScreen from "./screens/Shop/ShopOrdersScreen";
@@ -116,9 +114,9 @@ const createHeaderOptions =
   });
 
 //api placeholder
-// const role = 'user';
+const role = 'user';
 // const role = "shop";
-const role = "shipper";
+// const role = "shipper";
 
 const CustomerTab = (getHeaderOptions) => () =>
   (
@@ -140,8 +138,9 @@ const CustomerTab = (getHeaderOptions) => () =>
       />
       <Tab.Screen
         name="Profile"
-        component={CustomerHomeScreen}
+        component={CustomerProfileScreen}
         options={{ headerShown: false }}
+
       />
     </Tab.Navigator>
   );
@@ -219,7 +218,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Navigator initialRouteName="MainTabs">
         <Stack.Screen
           name="Welcome"
           component={WelcomeScreen}
@@ -814,52 +813,6 @@ export default function App() {
           })}
         />
 
-        {/* 
-        <Stack.Screen
-          name="CustomerEditAddressScreen"
-          component={CustomerEditAddressScreen}
-          options={({ navigation }) => ({
-            headerTitle: () => (
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: '#7e7e7e',
-                  fontFamily: fonts.HelveticaNeueMedium,
-                }}
-              >
-                Edit Address
-              </Text>
-            ),
-            headerTitleAlign: 'center',
-            headerStyle: {
-              backgroundColor: '#F4F8F7',
-              elevation: 0,
-              shadowOpacity: 0,
-              borderBottomWidth: 0,
-              height: 90,
-              paddingTop: 20,
-            },
-            headerShadowVisible: false,
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <View style={styles.squareIcon}>
-                  <View style={styles.iconContainer}>
-                    <DynamicIcon
-                      type="Ionicons"
-                      name="arrow-back"
-                      size={20}
-                      color="#7e7e7e"
-                    />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            ),
-            headerLeftContainerStyle: {
-              marginLeft: 16,
-              marginTop: 10,
-            },
-          })}
-    /> */}
 
         <Stack.Screen
           name="CustomerCartScreen"

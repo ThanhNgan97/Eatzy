@@ -1,20 +1,25 @@
 import { StyleSheet } from "react-native";
-import fonts from "../../../constants/fonts";
+import fonts from "../../constants/fonts";
+import { Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F4F8F7",
-  },
+ container: {
+  flex: 1,
+  backgroundColor: "#F4F8F7",
+},
+
 
   header: {
+    width: width, 
     height: 160,
-    backgroundColor: "transparent",
+    backgroundColor: 'transparent',
   },
 
   avatarWrapper: {
     alignItems: "center",
-    marginTop: -60,
+    marginTop: -40,
   },
 
   avatar: {
@@ -28,9 +33,13 @@ const styles = StyleSheet.create({
   name: {
     textAlign: "center",
     fontSize: 18,
-    fontWeight: "600",
     marginTop: 8,
+    fontFamily:fonts.HelveticaNeueBold
   },
+
+  profileInfo: {
+  marginTop: 0,
+},
 
   addressContainer: {
     flexDirection: "row",
@@ -44,25 +53,27 @@ const styles = StyleSheet.create({
   },
 
   addressText: {
-    color: "#4CAF50",
+    color: "#68BD6C",
     marginLeft: 6,
     fontSize: 13,
   },
 
   modifyButton: {
     alignSelf: "center",
-    backgroundColor: "#4CAF50",
-    borderRadius: 999,
-    paddingVertical: 6,
+    backgroundColor: "#68BD6C",
+    borderRadius: 100,
+    paddingVertical: 4,
     paddingHorizontal: 16,
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 15,
+    gap:10
   },
 
   modifyText: {
     color: "#fff",
-    fontFamily:fonts.HelveticaNeueBold
+    fontFamily:fonts.HelveticaNeueBold,
+    fontSize:14
   },
 
   statsRow: {

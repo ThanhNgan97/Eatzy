@@ -8,8 +8,8 @@ import {
   ImageBackground,
 } from "react-native";
 import { Ionicons, Feather } from "@expo/vector-icons";
-import styles from "./ShipperProfile.style";
 import { useNavigation } from "@react-navigation/native";
+import styles from "./ShipperProfile.style";
 
 const recentOrders = [
   {
@@ -31,6 +31,8 @@ const recentOrders = [
 ];
 
 const ShipperProfile = () => {
+  const navigation = useNavigation();
+
   const renderOrder = ({ item }) => (
     <View style={styles.orderItem}>
       <Image source={{ uri: item.image }} style={styles.orderImage} />
@@ -46,79 +48,76 @@ const ShipperProfile = () => {
     </View>
   );
 
-  const navigation = useNavigation();
-
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={{
-          uri: "https://media.sketchfab.com/models/c41b089c7d124489aa89f00951e72333/thumbnails/607a856ccb424b07aa197b3a368f0273/c3be82ddafe844618f565b032f5a302b.jpeg",
-        }}
-        style={styles.header}
-      />
+    <FlatList
+      data={recentOrders}
+      keyExtractor={(item) => item.id}
+      renderItem={renderOrder}
+      scrollEnabled={false}
+      ListHeaderComponent={
+        <>
+          <ImageBackground
+            source={{
+              uri: "https://media.sketchfab.com/models/c41b089c7d124489aa89f00951e72333/thumbnails/607a856ccb424b07aa197b3a368f0273/c3be82ddafe844618f565b032f5a302b.jpeg",
+            }}
+            style={styles.header}
+          />
 
-      {/* Avatar */}
-      <View style={styles.avatarWrapper}>
-        <Image
-          source={{
-            uri: "https://media.sketchfab.com/models/c41b089c7d124489aa89f00951e72333/thumbnails/607a856ccb424b07aa197b3a368f0273/c3be82ddafe844618f565b032f5a302b.jpeg",
-          }}
-          style={styles.avatar}
-        />
-      </View>
+          <View style={styles.avatarWrapper}>
+            <Image
+              source={{
+                uri: "https://media.sketchfab.com/models/c41b089c7d124489aa89f00951e72333/thumbnails/607a856ccb424b07aa197b3a368f0273/c3be82ddafe844618f565b032f5a302b.jpeg",
+              }}
+              style={styles.avatar}
+            />
+          </View>
 
-      {/* Profile info */}
-      <Text style={styles.name}>Anh Thư</Text>
-      <View style={styles.addressContainer}>
-        <Ionicons name="location-outline" size={16} color="#4CAF50" />
-        <Text style={styles.addressText}>
-          Hẻm 12 Đ. 3 Tháng 2, Hưng Lợi, Ninh Kiều, Cần Thơ
-        </Text>
-      </View>
+          <Text style={styles.name}>Anh Thư</Text>
+          <View style={styles.addressContainer}>
+            <Ionicons name="location-outline" size={16} color="#4CAF50" />
+            <Text style={styles.addressText}>
+              Hẻm 12 Đ. 3 Tháng 2, Hưng Lợi, Ninh Kiều, Cần Thơ
+            </Text>
+          </View>
 
-      <TouchableOpacity
-        style={styles.modifyButton}
-        onPress={() => navigation.navigate("ShipperProfileEditScreen")}
-      >
-        <Text style={styles.modifyText}>Modify profile</Text>
-        <Feather
-          name="edit"
-          size={14}
-          color="white"
-          style={{ marginLeft: 6 }}
-        />
-      </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.modifyButton}
+            onPress={() => navigation.navigate("ShipperProfileEditScreen")}
+          >
+            <Text style={styles.modifyText}>Modify profile</Text>
+            <Feather
+              name="edit"
+              size={14}
+              color="white"
+              style={{ marginLeft: 6 }}
+            />
+          </TouchableOpacity>
 
-      {/* Stats */}
-      <View style={styles.statsRow}>
-        <View style={styles.statBox}>
-          <Text style={styles.statValue}>39</Text>
-          <Text style={styles.statLabel}>orders</Text>
-        </View>
-        <View style={styles.statBox}>
-          <Text style={styles.statValue}>12</Text>
-          <Text style={styles.statLabel}>following</Text>
-        </View>
-        <View style={styles.statBox}>
-          <Text style={styles.statValue}>4.9/5</Text>
-          <Text style={styles.statLabel}>ratings</Text>
-        </View>
-      </View>
+          <View style={styles.statsRow}>
+            <View style={styles.statBox}>
+              <Text style={styles.statValue}>39</Text>
+              <Text style={styles.statLabel}>orders</Text>
+            </View>
+            <View style={styles.statBox}>
+              <Text style={styles.statValue}>12</Text>
+              <Text style={styles.statLabel}>following</Text>
+            </View>
+            <View style={styles.statBox}>
+              <Text style={styles.statValue}>4.9/5</Text>
+              <Text style={styles.statLabel}>ratings</Text>
+            </View>
+          </View>
 
-      {/* Recent orders */}
-      <Text style={styles.sectionTitle}>Recent orders</Text>
-      <FlatList
-        data={recentOrders}
-        keyExtractor={(item) => item.id}
-        renderItem={renderOrder}
-        style={styles.orderList}
-      />
-
-      {/* Logout */}
-      <TouchableOpacity style={styles.logoutButton}>
-        <Text style={styles.logoutText}>Log out</Text>
-      </TouchableOpacity>
-    </View>
+          <Text style={styles.sectionTitle}>Recent orders</Text>
+        </>
+      }
+      ListFooterComponent={
+        <TouchableOpacity style={styles.logoutButton}>
+          <Text style={styles.logoutText}>Log out</Text>
+        </TouchableOpacity>
+      }
+      contentContainerStyle={styles.container}
+    />
   );
 };
 
