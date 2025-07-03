@@ -5,10 +5,10 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-  StyleSheet,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import styles from "./ResetPassword.style";
+import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 
 const ResetPassword = ({ onConfirm }) => {
   const [newPassword, setNewPassword] = useState("");
@@ -26,18 +26,24 @@ const ResetPassword = ({ onConfirm }) => {
 
   return (
     <View style={styles.container}>
-      <Image
+      <View style={styles.containerResetPassword}>
+           <Image
         source={{
           uri: "https://a.pinatafarm.com/956x952/7fd2c04789/peace-sign-hamster.jpeg",
         }}
         style={styles.avatar}
       />
       <Text style={styles.title}>Reset</Text>
-      <Text style={styles.title}>Your Password</Text>
+      <Text style={styles.subtitle}>Your Password</Text>
 
-      {/* New Password Field */}
       <View style={styles.inputContainer}>
-        <Feather name="lock" size={20} color="#aaa" style={styles.icon} />
+        <DynamicIcon 
+          type="Feather" 
+          name="lock" 
+          size={18} 
+          color="#aaa" 
+          style={styles.icon} 
+        />
         <TextInput
           placeholder="New Password"
           secureTextEntry={!showNew}
@@ -46,13 +52,23 @@ const ResetPassword = ({ onConfirm }) => {
           onChangeText={setNewPassword}
         />
         <TouchableOpacity onPress={() => setShowNew(!showNew)}>
-          <Feather name={showNew ? "eye" : "eye-off"} size={20} color="#888" />
+          <DynamicIcon 
+          type="Feather"  
+          name={showNew ? "eye" : "eye-off"} 
+          size={15} 
+          color="#888" 
+        />
         </TouchableOpacity>
       </View>
 
-      {/* Confirm Password Field */}
       <View style={styles.inputContainer}>
-        <Feather name="lock" size={20} color="#aaa" style={styles.icon} />
+        <DynamicIcon 
+          type="Feather"  
+          name="lock" 
+          size={18} 
+          color="#aaa" 
+          style={styles.icon} 
+        />
         <TextInput
           placeholder="Confirm Password"
           secureTextEntry={!showConfirm}
@@ -61,9 +77,10 @@ const ResetPassword = ({ onConfirm }) => {
           onChangeText={setConfirmPassword}
         />
         <TouchableOpacity onPress={() => setShowConfirm(!showConfirm)}>
-          <Feather
+          <DynamicIcon 
+            type="Feather" 
             name={showConfirm ? "eye" : "eye-off"}
-            size={20}
+            size={15}
             color="#888"
           />
         </TouchableOpacity>
@@ -72,6 +89,7 @@ const ResetPassword = ({ onConfirm }) => {
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Confirm</Text>
       </TouchableOpacity>
+      </View>
     </View>
   );
 };
