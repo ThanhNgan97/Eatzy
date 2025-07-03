@@ -16,7 +16,8 @@ const Login = ({ onLogin, onNavigateRegister, onNavigateForgot }) => {
         style={styles.avatar}
       />
 
-      <Text style={styles.title}>Login your{"\n"}Account</Text>
+      <Text style={styles.title}>Login your</Text>
+      <Text style={styles.subtitle}>Account</Text>
 
       <View style={styles.inputContainer}>
         <DynamicIcon 

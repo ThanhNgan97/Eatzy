@@ -22,7 +22,9 @@ const Register = ({ onRegister, onNavigateLogin }) => {
         }}
         style={styles.avatar}
       />
-      <Text style={styles.title}>Create your{"\n"}Account</Text>
+      <Text style={styles.title}>Create your</Text>
+      <Text style={styles.subtitle}>Account</Text>
+
 
       <View style={styles.inputContainer}>
         <DynamicIcon 

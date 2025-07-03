@@ -24,6 +24,14 @@ const styles = StyleSheet.create({
     fontSize: width * 0.08,
     color: "#68BD6C",
     textAlign: "center",
+    // marginBottom: height * 0.04,
+    fontFamily: fonts.HelveticaNeueMedium,
+  },
+
+    subtitle: {
+    fontSize: width * 0.08,
+    color: "#68BD6C",
+    textAlign: "center",
     marginBottom: height * 0.04,
     fontFamily: fonts.HelveticaNeueMedium,
   },

@@ -24,9 +24,17 @@ const styles = StyleSheet.create({
     fontSize: width * 0.085,
     color: "#68BD6C",
     textAlign: "center",
-    marginBottom: height * 0.035,
     fontFamily: fonts.HelveticaNeueMedium,
   },
+
+    subtitle: {
+    fontSize: width * 0.085,
+    color: "#68BD6C",
+    textAlign: "center",
+    marginBottom: height * 0.02,
+    fontFamily: fonts.HelveticaNeueMedium,
+  },
+
 
   inputContainer: {
     flexDirection: "row",

@@ -1,26 +1,33 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import fonts from "../../../constants/fonts";
 
-export default StyleSheet.create({
-  container: {
+const { width, height } = Dimensions.get("window");
+
+const styles = StyleSheet.create({
+   container: {
     flex: 1,
     backgroundColor: "#F4F8F5",
-    alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 20,
+    alignItems: "center",
+    paddingHorizontal: width * 0.07,
+  },
+
+  containerForgotPassword: {
+    width: "100%",
+    alignItems: "center",
+    marginBottom:height*0.3
   },
 
   avatar: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    marginBottom: 30,
+    width: width * 0.3,
+    height: width * 0.3,
+    borderRadius: width * 0.15,
+    marginBottom: height * 0.03,
   },
 
   title: {
-    fontSize: 32,
-    fontWeight: "600",
-    color: "#56AE5A",
+    fontSize: width * 0.08,
+    color: "#68BD6C",
     fontFamily: fonts.HelveticaNeueMedium,
   },
 
@@ -28,43 +35,62 @@ export default StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#fff",
     borderRadius: 20,
-    padding: 15,
+    paddingVertical: width * 0.04,
+    paddingHorizontal: width * 0.05,
     width: "100%",
     alignItems: "center",
-    marginTop: 40,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
+    marginTop: height * 0.04,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+      },
+      android: {
+        elevation: 4,
+      }, 
+    }),
+    gap:10
   },
 
   icon: {
-    marginRight: 12,
+    marginRight: width * 0.04,
+  },
+
+  inputLabelColumn: {
+    flexDirection: "column",
   },
 
   inputLabel: {
-    color: "#56AE5A",
-    fontSize: 16,
-    fontWeight: "500",
+    fontSize: width * 0.045,
+    color: "#68BD6C",
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   inputHint: {
-    color: "#8BC690",
-    fontSize: 14,
-    marginTop: 2,
+    fontSize: width * 0.04,
+    color: "#A9DAB0",
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 
   button: {
-    backgroundColor: "#56AE5A",
-    paddingVertical: 16,
-    paddingHorizontal: 50,
-    borderRadius: 30,
-    marginTop: 30,
+   backgroundColor: "#68BD6C",
+    borderRadius: 50,
+    paddingVertical: height * 0.015,
+    width: width * 0.5,
+    alignItems: "center",
+    justifyContent:'center',
+    alignSelf:'center',
+    marginTop: 40,
   },
 
   buttonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: width * 0.045,
     fontFamily: fonts.HelveticaNeueBold,
   },
+  
 });
+
+export default styles
