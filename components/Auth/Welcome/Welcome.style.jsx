@@ -111,7 +111,6 @@ containerAvatar:{
 socialIcon: {
   width: 20,
   height: 20,
-
 },
 
 });
