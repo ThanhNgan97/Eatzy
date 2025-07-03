@@ -4,22 +4,32 @@ import {
   View,
 } from "react-native";
 import fonts from "../../constants/fonts";
-import CustomerProfile from "../../components/CustomerProfile/CustomerProfile";
+import HeaderBanner from "../../components/CustomerProfile/HeaderBanner/HeaderBanner";
+import AvatarInfo from "../../components/CustomerProfile/AvatarInfo/AvatarInfo";
+import ModifyButton from "../../components/CustomerProfile/ModifyButton/ModifyButton";
+import StatsSection from "../../components/CustomerProfile/StatBox/StatBoxSection";
+import RecentOrders from "../../components/CustomerProfile/RecentOrders/RecentOrders";
+import LogoutButton from "../../components/CustomerProfile/LogoutButton/LogoutButton";
 
 const CustomerProfileScreen = () => {
   return (
     <View style={styles.container}>
+      <HeaderBanner />
+      <AvatarInfo/>
+
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        <CustomerProfile/>
+        <ModifyButton/>
+        <StatsSection/>
+        <RecentOrders/>
+        <LogoutButton/>
       </ScrollView>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -32,7 +42,7 @@ const styles = StyleSheet.create({
 
   content: {
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
 
   buttonContainer: {

@@ -1,10 +1,6 @@
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-} from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import fonts from "../../constants/fonts";
-import CustomerProfileEdit from "../../components/CustomerProfile/CustomerProfileEdit/CustomerProfileEdit"
+import CustomerProfileEdit from "../../components/CustomerProfileEdit/CustomerProfileEdit";
 
 const CustomerProfileEdit = () => {
   return (
@@ -14,7 +10,7 @@ const CustomerProfileEdit = () => {
         contentContainerStyle={styles.content}
         keyboardShouldPersistTaps="handled"
       >
-        <CustomerProfileEdit/>
+        <CustomerProfileEdit />
       </ScrollView>
     </View>
   );

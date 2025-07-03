@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./CustomerProfileEdit.style";
-import DynamicIcon from "../../../shared/Icons/DynamicIcon";
+import DynamicIcon from "../../shared/Icons/DynamicIcon";
 
 const CustomerProfileEdit = () => {
   const handleLogout = () => {
     console.log("Logout pressed");
-
   };
 
   return (
