@@ -1,11 +1,7 @@
 import { StyleSheet } from "react-native";
-import fonts from "../../../constants/fonts";
+import fonts from "../../../../constants/fonts";
 
 export default StyleSheet.create({
-  container: {
-    padding: 16,
-  },
-
   card: {
     backgroundColor: "#fff",
     borderRadius: 20,
@@ -44,46 +40,5 @@ export default StyleSheet.create({
   timeText: {
     color: "#fff",
     fontSize: 12,
-  },
-
-  label: {
-    marginTop: 8,
-    fontSize: 14,
-    color: "#333",
-  },
-
-  destinationRow: {
-    flexDirection: "row",
-    marginTop: 4,
-    marginBottom: 8,
-    flexWrap: "wrap",
-  },
-
-  bold: {
-    fontWeight: "600",
-  },
-
-  address: {
-    color: "#333",
-    flex: 1,
-    fontSize: 13,
-  },
-
-  price: {
-    color: "#4CAF50",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-
-  takeButton: {
-    backgroundColor: "#4CAF50",
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-    borderRadius: 20,
-  },
-
-  takeButtonText: {
-    color: "#fff",
-    fontWeight: "bold",
   },
 });
