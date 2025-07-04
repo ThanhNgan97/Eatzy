@@ -12,7 +12,7 @@ const orders = [
     price: 100000,
     timeLeft: "30mins left",
   },
-  // Add more items if needed
+
 ];
 
 const ShipperOrder = () => {

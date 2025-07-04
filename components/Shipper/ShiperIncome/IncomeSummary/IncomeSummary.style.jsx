@@ -1,47 +1,67 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import fonts from "../../../../constants/fonts";
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   summaryContainer: {
     backgroundColor: "#fff",
     borderRadius: 16,
-    padding: 16,
-    elevation: 1,
+    padding: Platform.OS === "ios" ? 18 : 16,
     marginBottom: 20,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.06,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
+
   summaryHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 8,
   },
+
   sectionTitle: {
-    fontSize: 14,
-    color: "#333",
+    fontSize: Platform.OS === "ios" ? 15 : 14,
+    color: "#68BD6C",
     marginBottom: 4,
     fontFamily: fonts.HelveticaNeueMedium,
   },
+
   orderCount: {
-    color: "#333",
+    color: "#68BD6C",
+    fontSize: Platform.OS === "ios" ? 14 : 14,
     fontFamily: fonts.HelveticaNeueMediumItalic,
   },
+
   summaryRow: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 8,
   },
+
   symbol: {
-    fontSize: 16,
+    fontSize: Platform.OS === "ios" ? 16 : 15,
     marginRight: 8,
   },
+
   summaryLabel: {
     flex: 1,
-    fontSize: 14,
+    fontSize: Platform.OS === "ios" ? 14 : 13,
     color: "#333",
     fontFamily: fonts.HelveticaNeueMedium,
   },
+
   summaryValue: {
-    fontSize: 14,
+    fontSize: Platform.OS === "ios" ? 14 : 13,
     color: "#333",
     fontFamily: fonts.HelveticaNeueMediumItalic,
   },
 });
+
+export default styles

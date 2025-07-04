@@ -4,9 +4,9 @@ import fonts from "../../../../constants/fonts";
 export default StyleSheet.create({
   getOrderButton: {
     backgroundColor: "#68BD6C",
-    paddingHorizontal: 32,
-    paddingVertical: 12,
-    borderRadius: 999,
+    paddingHorizontal: 22,
+    paddingVertical: 8,
+    borderRadius: 30,
   },
   getOrderText: {
     color: "white",

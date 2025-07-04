@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import fonts from "../../../../constants/fonts";
 
 export default StyleSheet.create({
@@ -12,7 +12,18 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 16,
     padding: 16,
-    elevation: 2,
+    marginBottom: 16,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.05,
+        shadowRadius: 8,
+        shadowOffset: { width: 0, height: 2 },
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
 
   orderTop: {
@@ -24,14 +35,15 @@ export default StyleSheet.create({
   orderId: {
     color: "#4CAF50",
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: Platform.OS === "ios" ? 16 : 15,
     fontFamily: fonts.HelveticaNeueBold,
   },
 
   cashCollect: {
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: Platform.OS === "ios" ? 16 : 15,
     color: "#000",
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   foodRow: {
@@ -54,6 +66,7 @@ export default StyleSheet.create({
   foodName: {
     fontSize: 16,
     fontFamily: fonts.HelveticaNeueBold,
+    color: "#333",
   },
 
   foodType: {
@@ -66,16 +79,21 @@ export default StyleSheet.create({
   foodPrice: {
     fontSize: 16,
     fontFamily: fonts.HelveticaNeueBold,
+    color: "#000",
   },
 
   quantityControl: {
     flexDirection: "row",
     alignItems: "center",
+    marginTop:30,
+    justifyContent:'center',
+    alignItems:'center',
+    alignSelf:'center'
   },
 
   quantityBtn: {
-    width: 28,
-    height: 28,
+    width: 25,
+    height: 25,
     borderRadius: 6,
     backgroundColor: "#E4F3E4",
     justifyContent: "center",
@@ -85,12 +103,14 @@ export default StyleSheet.create({
   quantityText: {
     fontSize: 18,
     color: "#4CAF50",
+    fontFamily: fonts.HelveticaNeueBold,
   },
 
   quantityNumber: {
     marginHorizontal: 8,
     fontSize: 16,
     fontFamily: fonts.HelveticaNeueMedium,
+    color: "#333",
   },
 
   section: {
@@ -101,6 +121,7 @@ export default StyleSheet.create({
     color: "#777",
     marginBottom: 4,
     fontFamily: fonts.HelveticaNeueMedium,
+    fontSize: 13,
   },
 
   address: {
@@ -112,21 +133,28 @@ export default StyleSheet.create({
 
   actionButton: {
     backgroundColor: "#fddccf",
-    paddingVertical: 6,
+    paddingVertical: Platform.OS === "ios" ? 7 : 6,
     paddingHorizontal: 12,
     borderRadius: 20,
     alignSelf: "flex-start",
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 2,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.1,
+        shadowOffset: { width: 0, height: 2 },
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
 
   actionButtonText: {
     color: "#d24d0f",
     fontWeight: "600",
     fontFamily: fonts.HelveticaNeueBold,
+    fontSize: 14,
   },
 
   greenButton: {
@@ -137,14 +165,25 @@ export default StyleSheet.create({
     color: "#4CAF50",
     fontWeight: "600",
     fontFamily: fonts.HelveticaNeueBold,
+    fontSize: 14,
   },
 
   noteBox: {
     backgroundColor: "#fff",
     borderRadius: 12,
-    elevation: 2,
+    padding: 12,
     marginBottom: 20,
-    fontFamily: fonts.HelveticaNeueMedium,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOpacity: 0.05,
+        shadowOffset: { width: 0, height: 1 },
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
 
   noteLabel: {
@@ -157,6 +196,7 @@ export default StyleSheet.create({
   noteText: {
     fontSize: 14,
     color: "#000",
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 
   timeText: {
@@ -164,5 +204,6 @@ export default StyleSheet.create({
     color: "#999",
     marginTop: 12,
     textAlign: "center",
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 });

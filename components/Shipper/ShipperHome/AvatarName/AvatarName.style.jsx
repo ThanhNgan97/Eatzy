@@ -6,14 +6,13 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   avatar: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     borderRadius: 40,
     marginBottom: 12,
   },
   name: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 18,
     marginBottom: 16,
     fontFamily: fonts.HelveticaNeueBold,
   },

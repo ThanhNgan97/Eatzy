@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   Image,
   Switch,
 } from "react-native";
 import styles from "./ShopMenu.style";
-import { Entypo, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import shopMenuData from "./ShopMenuData";
+import SearchBar from "../../../shared/SearchBar";
+import DynamicIcon from "../../../shared/Icons/DynamicIcon";
 
 const ShopMenu = () => {
   const navigation = useNavigation();
@@ -36,17 +36,12 @@ const ShopMenu = () => {
         <Text style={styles.tabInactive}>Category</Text>
       </View>
 
-      {/* Search & Add */}
-      <TextInput
-        placeholder="Search in menu ..."
-        style={styles.searchInput}
-        placeholderTextColor="#DADADA"
-      />
+      <SearchBar placeholder={'Search in menu ...'}/>
       <TouchableOpacity
         onPress={() => navigation.navigate("AddFood")}
         style={styles.addButton}
       >
-        <Text style={styles.addButtonText}>Thêm món mới</Text>
+        <Text style={styles.addButtonText}>Add New Food</Text>
       </TouchableOpacity>
 
       {/* List */}
@@ -57,7 +52,7 @@ const ShopMenu = () => {
             onPress={() => toggleCategory(cat.category)}
           >
             <Text style={styles.categoryText}>{cat.category}</Text>
-            <Entypo
+            <DynamicIcon type="Entypo" 
               name={expanded[cat.category] ? "chevron-up" : "chevron-down"}
               size={18}
               color="#7e7e7e"
