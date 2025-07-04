@@ -21,7 +21,7 @@ import CustomerPaymentMethodScreen from "./screens/Customer/CustomerPaymentMetho
 import CustomerProvinceScreen from "./screens/Customer/CustomerProvinceScreen";
 import CustomerNotificationScreen from "./screens/Customer/CustomerNotificationScreen";
 import CustomerProfileScreen from "./screens/Customer/CustomerProfileScreen";
-import CustomerProfileEditScreen from "./screens/Customer/CustomerProfileEditScreen"
+import CustomerProfileEditScreen from "./screens/Customer/CustomerProfileEditScreen";
 
 //Shop Screen
 import ShopOrderDetailScreen from "./screens/Shop/ShopOrderDetailScreen";
@@ -31,7 +31,7 @@ import ShopReportScreen from "./screens/Shop/ShopReportScreen";
 import ShopHomeScreen from "./screens/Shop/ShopHomeScreen";
 import ShopScreen from "./screens/Shop/ShopScreen";
 import AddFoodScreen from "./screens/Shop/AddFoodScreen";
-import ShopNotificationScreen from "./screens/Shop/ShopNotificationScreen"
+import ShopNotificationScreen from "./screens/Shop/ShopNotificationScreen";
 
 //Shipper Screen
 import ShipperHomeScreen from "./screens/Shipper/ShipperHomeScreen";
@@ -116,9 +116,9 @@ const createHeaderOptions =
   });
 
 //api placeholder
-// const role = 'user';
-const role = "shop";
-// const role = "shipper";
+// const role = "user";
+// const role = "shop";
+const role = "shipper";
 
 const CustomerTab = (getHeaderOptions) => () =>
   (
@@ -142,7 +142,6 @@ const CustomerTab = (getHeaderOptions) => () =>
         name="Profile"
         component={CustomerProfileScreen}
         options={{ headerShown: false }}
-
       />
     </Tab.Navigator>
   );
@@ -815,7 +814,6 @@ export default function App() {
           })}
         />
 
-
         <Stack.Screen
           name="CustomerCartScreen"
           component={CustomerCartScreen}
@@ -970,7 +968,6 @@ export default function App() {
           })}
         />
 
-
         <Stack.Screen
           name="ShopNotificationScreen"
           component={ShopNotificationScreen}
@@ -1040,8 +1037,7 @@ export default function App() {
               marginTop: 10,
             },
           })}
-        />   
-
+        />
 
         <Stack.Screen
           name="CustomerProfileEditScreen"
