@@ -1,19 +1,20 @@
+
 export const weeklyData = [
-  { date: "15/01", value: 230890 },
-  { date: "16/01", value: 421212 },
-  { date: "17/01", value: 310918 },
-  { date: "18/01", value: 113326 },
-  { date: "19/01", value: 251121 },
-  { date: "20/01", value: 198564 },
-  { date: "21/01", value: 256932 },
+  { date: "Mon", value: 230000 },
+  { date: "Tue", value: 180000 },
+  { date: "Wed", value: 320000 },
+  { date: "Thu", value: 250000 },
+  { date: "Fri", value: 210000 },
+  { date: "Sat", value: 400000 },
+  { date: "Sun", value: 190000 },
 ];
 
 export const monthlyData = [
-  { date: "Jan", value: 1520890 },
-  { date: "Feb", value: 1230000 },
-  { date: "Mar", value: 980000 },
-  { date: "Apr", value: 1450000 },
-  { date: "May", value: 1520890 },
-  { date: "Jun", value: 1230000 },
-  { date: "Jul", value: 980000 },
+  { date: "01/06", value: 1000000 },
+  { date: "02/06", value: 1250000 },
+  { date: "03/06", value: 850000 },
+  { date: "04/06", value: 980000 },
+  { date: "05/06", value: 750000 },
+  { date: "06/06", value: 1100000 },
+  { date: "07/06", value: 1300000 },
 ];

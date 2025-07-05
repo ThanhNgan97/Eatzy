@@ -17,17 +17,21 @@ const IncomeChart = ({ activeTab, setActiveTab, data }) => {
   return (
     <View style={styles.chartContainer}>
       {/* Tabs */}
-      <View style={styles.tabContainer}>
-        {["Week", "Month"].map((tab) => (
-          <TouchableOpacity key={tab} onPress={() => setActiveTab(tab)}>
-            <Text
-              style={activeTab === tab ? styles.activeTab : styles.inactiveTab}
-            >
-              {tab}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+        <View style={styles.tabContainer}>
+          {["Week", "Month"].map((tab) => (
+            <TouchableOpacity key={tab} onPress={() => setActiveTab(tab)}>
+              <Text
+                style={[
+                  styles.tabText,
+                  activeTab === tab ? styles.activeTab : styles.inactiveTab,
+                ]}
+              >
+                {tab}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
 
       {/* Tổng thu nhập */}
       <Text style={styles.sectionTitle}>

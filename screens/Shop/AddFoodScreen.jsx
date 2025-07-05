@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import AddFood from "../../components/Shop/ShopMenu/AddFood/AddFood";
+import AddFood from "../../components/Shop/AddFood/AddFood";
 
 const AddFoodScreen = () => {
   return (
@@ -9,7 +9,7 @@ const AddFoodScreen = () => {
       contentContainerStyle={styles.content}
       keyboardShouldPersistTaps="handled"
     >
-      <AddFood />
+      <AddFood/>
     </ScrollView>
   );
 };

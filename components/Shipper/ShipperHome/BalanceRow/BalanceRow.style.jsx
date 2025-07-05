@@ -25,12 +25,14 @@ export default StyleSheet.create({
   balanceLabel: {
     fontSize: 13,
     fontFamily: fonts.HelveticaNeueBold,
+    color:'#7e7e7e'
   },
 
   balanceAmount: {
-    fontSize: 13,
-    fontWeight: "bold",
+    fontSize: 15,
     marginTop: 4,
     fontFamily: fonts.HelveticaNeueMedium,
+    color:'#7e7e7e'
+
   },
 });

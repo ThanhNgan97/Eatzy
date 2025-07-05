@@ -9,7 +9,7 @@ const BalanceRow = () => {
       <View style={styles.balanceBox}>
         <Ionicons
           name="wallet-outline"
-          size={20}
+          size={28}
           color="#4CAF50"
           style={styles.balanceIcon}
         />
@@ -20,7 +20,7 @@ const BalanceRow = () => {
       <View style={styles.balanceBox}>
         <Ionicons
           name="card-outline"
-          size={20}
+          size={28}
           color="#4CAF50"
           style={styles.balanceIcon}
         />

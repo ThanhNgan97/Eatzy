@@ -1046,7 +1046,7 @@ export default function App() {
         />
 
         <Stack.Screen
-          name="ShopMenu"
+          name="ShopMenuScreen"
           component={ShopMenuScreen}
           options={getHeaderOptions("Menu", "goBack")}
         />
