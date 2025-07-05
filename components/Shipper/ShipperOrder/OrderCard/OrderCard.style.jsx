@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
-import fonts from "../../../constants/fonts";
+import fonts from "../../../../constants/fonts";
 
 const styles = StyleSheet.create({
   container: {
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
   price: {
     color: "#68BD6C",
     fontSize: 16,
-    fontWeight: "bold",
     fontFamily: fonts.HelveticaNeueBold,
   },
 
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
 
   takeButtonText: {
     color: "#fff",
-    fontWeight: "bold",
     fontFamily: fonts.HelveticaNeueMedium,
     fontSize: 14,
   },

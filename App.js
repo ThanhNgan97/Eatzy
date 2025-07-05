@@ -116,9 +116,9 @@ const createHeaderOptions =
   });
 
 //api placeholder
-// const role = "user";
+const role = "user";
 // const role = "shop";
-const role = "shipper";
+// const role = "shipper";
 
 const CustomerTab = (getHeaderOptions) => () =>
   (
