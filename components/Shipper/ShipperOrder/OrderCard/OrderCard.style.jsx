@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<<<<<<<< HEAD:components/Shipper/ShipperOrder/OrderCard/OrderCard.style.jsx
-import { StyleSheet } from "react-native";
-import fonts from "../../../../constants/fonts";
-
-export default StyleSheet.create({
-========
-=======
->>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105
 import { StyleSheet, Platform } from "react-native";
 import fonts from "../../../constants/fonts";
 
@@ -15,10 +6,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-<<<<<<< HEAD
->>>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105:components/Shipper/ShipperOrder/ShipperOrder.style.jsx
-=======
->>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105
   card: {
     backgroundColor: "#fff",
     borderRadius: 20,
@@ -35,11 +22,7 @@ const styles = StyleSheet.create({
         elevation: 3,
       },
     }),
-<<<<<<< HEAD
-    overflow: Platform.OS === "ios" ? "hidden" : "visible", 
-=======
     overflow: Platform.OS === "ios" ? "hidden" : "visible",
->>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105
   },
 
   rowBetween: {
@@ -65,13 +48,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: Platform.OS === "ios" ? 4 : 3,
     borderRadius: 12,
-<<<<<<< HEAD
-    justifyContent:'center',
-    alignItems:'center'
-=======
     justifyContent: "center",
     alignItems: "center",
->>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105
   },
 
   timeText: {
@@ -79,11 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: fonts.HelveticaNeueMedium,
   },
-<<<<<<< HEAD
-<<<<<<<< HEAD:components/Shipper/ShipperOrder/OrderCard/OrderCard.style.jsx
-========
-=======
->>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105
 
   label: {
     marginTop: 8,
@@ -142,13 +115,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.HelveticaNeueMedium,
     fontSize: 14,
   },
-<<<<<<< HEAD
->>>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105:components/Shipper/ShipperOrder/ShipperOrder.style.jsx
-});
-
-export default styles
-=======
 });
 
 export default styles;
->>>>>>> 3ab403d1cc9fcd5c170e26cfdb0b225e86ccf105
