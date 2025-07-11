@@ -39,6 +39,7 @@ import ShipperOrderScreen from "./screens/Shipper/ShipperOrderScreen";
 import ShipperIncomeScreen from "./screens/Shipper/ShipperIncomeScreen";
 import ShipperProfileScreen from "./screens/Shipper/ShipperProfileScreen";
 import ShipperOrderDetailScreen from "./screens/Shipper/ShipperOrderDetailScreen";
+<<<<<<< HEAD
 
 //Auth
 import WelcomeScreen from "./screens/Auth/WelcomeScreen";
@@ -47,6 +48,8 @@ import ForgotPasswordScreen from "./screens/Auth/ForgotPasswordScreen";
 import OTPVerificationScreen from "./screens/Auth/OTPVerificationScreen";
 import ResetPasswordScreen from "./screens/Auth/ResetPasswordScreen";
 import LoginScreen from "./screens/Auth/LoginScreen";
+=======
+>>>>>>> parent of 3d56aaf (ShipperProfile done)
 
 //Bar
 import AddressBar from "./shared/AddressBar/index";
