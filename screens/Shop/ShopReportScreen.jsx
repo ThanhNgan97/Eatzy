@@ -13,7 +13,15 @@ import fonts from "../../constants/fonts";
 const ShopReportScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}></View>
+      <View style={styles.header}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Home")}
+          style={styles.backButton}
+        >
+          <Ionicons name="arrow-back" size={24} color="#2B2B2B" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Report</Text>
+      </View>
 
       <ShopReport />
     </SafeAreaView>
@@ -41,6 +49,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginRight: 10,
     elevation: 2,
+  },
+
+  title: {
+    fontSize: 20,
+    fontWeight: "600",
+    color: "#33363F",
+    position: "absolute",
+    left: 0,
+    right: 0,
+    textAlign: "center",
+    fontFamily: fonts.HelveticaNeueMedium,
   },
 });
 
