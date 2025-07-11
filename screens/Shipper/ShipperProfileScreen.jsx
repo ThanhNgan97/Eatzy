@@ -27,25 +27,22 @@ const ShipperProfileScreen = () => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F4F8F7",
   },
-
   scroll: {
     flex: 1,
   },
-
   content: {
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
-
   buttonContainer: {
     paddingHorizontal: 16,
   },
-
   button: {
     marginTop: 16,
     backgroundColor: "#68BD6C",
@@ -53,7 +50,6 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
   },
-
   buttonText: {
     color: "#fff",
     fontSize: 16,

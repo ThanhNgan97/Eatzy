@@ -39,7 +39,6 @@ import ShipperOrderScreen from "./screens/Shipper/ShipperOrderScreen";
 import ShipperIncomeScreen from "./screens/Shipper/ShipperIncomeScreen";
 import ShipperProfileScreen from "./screens/Shipper/ShipperProfileScreen";
 import ShipperOrderDetailScreen from "./screens/Shipper/ShipperOrderDetailScreen";
-import ShipperProfileEditScreen from "./screens/Shipper/ShipperProfileEditScreen";
 
 //Auth
 import WelcomeScreen from "./screens/Auth/WelcomeScreen";
@@ -194,7 +193,7 @@ const ShipperTab = (getHeaderOptions) => () =>
       <Tab.Screen
         name="Profile"
         component={ShipperProfileScreen}
-        options={{ headerShown: false }}
+        options={getHeaderOptions("Profile", "Home")}
       />
     </Tab.Navigator>
   );
@@ -1061,12 +1060,6 @@ export default function App() {
           name="ShipperOrderDetailScreen"
           component={ShipperOrderDetailScreen}
           options={getHeaderOptions("Order", "goBack")}
-        />
-
-        <Stack.Screen
-          name="ShipperProfileEditScreen"
-          component={ShipperProfileEditScreen}
-          options={getHeaderOptions("Profile", "goBack")}
         />
       </Stack.Navigator>
     </NavigationContainer>
